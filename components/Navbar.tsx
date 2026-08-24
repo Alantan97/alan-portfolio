@@ -29,7 +29,7 @@ export function Navbar() {
         </div>
         <Link
           href="/#contact"
-          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-background transition hover:bg-accent-hover"
+          className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-background transition hover:bg-accent-hover"
         >
           Contact
         </Link>

@@ -7,7 +7,7 @@ export function Hero() {
       className="relative overflow-hidden border-b border-border bg-background bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/bg.png')" }}
     >
-      <div className="pointer-events-none absolute left-8 top-28 h-56 w-56 rounded-full bg-accent/10 blur-3xl" />
+      
       <div className="relative mx-auto flex min-h-[calc(100vh-81px)] max-w-6xl items-center px-5 py-20 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <p className="mb-5 inline-flex rounded-full border border-accent/20 bg-accent/5 px-4 py-2 text-sm font-semibold text-accent">
@@ -22,13 +22,13 @@ export function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#projects"
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition hover:bg-accent-hover"
+              className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-background transition hover:bg-accent-hover"
             >
               View My Work
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-lg border border-border px-6 py-3 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
+              className="inline-flex items-center justify-center rounded-full border border-border px-6 py-3 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent"
             >
               Contact Me
             </a>
