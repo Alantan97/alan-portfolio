@@ -1,0 +1,16 @@
+<svg width="900" height="560" viewBox="0 0 900 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Dashboard project placeholder</title>
+  <desc id="desc">A dashboard-style project preview placeholder.</desc>
+  <rect width="900" height="560" fill="#FFFFFF"/>
+  <rect x="72" y="64" width="756" height="432" rx="28" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <rect x="112" y="112" width="172" height="336" rx="18" fill="#111827"/>
+  <rect x="320" y="112" width="210" height="120" rx="18" fill="#2563EB" fill-opacity="0.08"/>
+  <rect x="558" y="112" width="230" height="120" rx="18" fill="#2563EB" fill-opacity="0.14"/>
+  <rect x="320" y="264" width="468" height="40" rx="12" fill="#E5E7EB"/>
+  <rect x="320" y="328" width="384" height="40" rx="12" fill="#E5E7EB"/>
+  <rect x="320" y="392" width="430" height="40" rx="12" fill="#E5E7EB"/>
+  <circle cx="166" cy="162" r="20" fill="#2563EB"/>
+  <rect x="112" y="220" width="122" height="16" rx="8" fill="#6B7280"/>
+  <rect x="112" y="260" width="92" height="16" rx="8" fill="#6B7280"/>
+  <rect x="112" y="300" width="132" height="16" rx="8" fill="#6B7280"/>
+</svg>

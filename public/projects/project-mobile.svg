@@ -1,0 +1,16 @@
+<svg width="900" height="560" viewBox="0 0 900 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mobile app project placeholder</title>
+  <desc id="desc">A mobile interface project preview placeholder.</desc>
+  <rect width="900" height="560" fill="#FFFFFF"/>
+  <rect x="196" y="54" width="220" height="452" rx="42" fill="#111827"/>
+  <rect x="216" y="92" width="180" height="376" rx="24" fill="#FFFFFF"/>
+  <rect x="246" y="128" width="120" height="16" rx="8" fill="#2563EB"/>
+  <rect x="244" y="176" width="124" height="124" rx="24" fill="#2563EB" fill-opacity="0.08"/>
+  <rect x="244" y="324" width="124" height="22" rx="11" fill="#E5E7EB"/>
+  <rect x="244" y="362" width="92" height="22" rx="11" fill="#E5E7EB"/>
+  <rect x="484" y="104" width="220" height="72" rx="22" fill="#2563EB" fill-opacity="0.14"/>
+  <rect x="484" y="212" width="270" height="72" rx="22" fill="#2563EB" fill-opacity="0.08"/>
+  <rect x="484" y="320" width="190" height="72" rx="22" fill="#E5E7EB"/>
+  <circle cx="738" cy="154" r="26" fill="#6B7280"/>
+  <circle cx="738" cy="378" r="26" fill="#2563EB"/>
+</svg>

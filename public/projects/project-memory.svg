@@ -1,0 +1,13 @@
+<svg width="900" height="560" viewBox="0 0 900 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Interactive narrative project placeholder</title>
+  <desc id="desc">A minimal project preview for an interactive narrative case study.</desc>
+  <rect width="900" height="560" fill="#FFFFFF"/>
+  <rect x="106" y="78" width="688" height="404" rx="28" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <rect x="156" y="132" width="260" height="296" rx="22" fill="#111827"/>
+  <path d="M202 230C230 184 286 184 314 230C342 184 398 184 426 230C398 276 342 276 314 230C286 276 230 276 202 230Z" fill="#2563EB"/>
+  <rect x="478" y="154" width="220" height="22" rx="11" fill="#111827"/>
+  <rect x="478" y="212" width="250" height="18" rx="9" fill="#6B7280"/>
+  <rect x="478" y="254" width="196" height="18" rx="9" fill="#6B7280"/>
+  <rect x="478" y="324" width="190" height="50" rx="14" fill="#2563EB"/>
+  <rect x="478" y="394" width="150" height="18" rx="9" fill="#E5E7EB"/>
+</svg>
