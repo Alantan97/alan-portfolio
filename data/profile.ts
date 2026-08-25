@@ -24,7 +24,7 @@ export const profile = {
   currentFocus: "Building full-stack applications and improving problem-solving skills.",
   interests: "Web development, mobile apps, UI/UX, and software architecture.",
   summary:
-    "I build software applications with a focus on development, problem solving, and user experience.",
+    "I build software products with a focus on full-stack development, AI, and user experience.",
   about:
     "I am a Software Engineering student interested in creating thoughtful, practical software. I enjoy building practical applications, learning from real user problems, and improving the details that make software easier to use.",
   profileImage: "/alang.png",
