@@ -27,7 +27,7 @@ export const profile = {
     "I build software products with a focus on full-stack development, AI, and user experience.",
   about:
     "I am a Software Engineering student interested in creating thoughtful, practical software. I enjoy building practical applications, learning from real user problems, and improving the details that make software easier to use.",
-  profileImage: "/alang.png",
+  profileImage: "/alantxn.png",
   resumeUrl: "#",
 };
 

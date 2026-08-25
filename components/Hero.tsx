@@ -10,7 +10,7 @@ export function Hero() {
       
       <div className="relative mx-auto flex min-h-[calc(100vh-81px)] max-w-6xl items-center px-5 py-20 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-lg font-semibold text-secondary">Hi, I am</p>
+          <p className="text-2xl font-semibold text-secondary">Hi, I am</p>
           <h1 className="mt-2 max-w-3xl text-5xl font-bold leading-tight text-primary sm:text-7xl">
             {profile.name}
           </h1>

@@ -7,7 +7,7 @@ type AchievementCardProps = {
 
 export function AchievementCard({ achievement }: AchievementCardProps) {
   const content = (
-    <article className="h-full rounded-3xl border border-border bg-background p-7 transition hover:-translate-y-1 hover:border-accent hover:shadow-xl hover:shadow-border/70">
+    <article className="h-full rounded-3xl border border-accent/10 bg-background p-7 shadow-sm shadow-accent/5 transition hover:-translate-y-1 hover:border-accent hover:shadow-xl hover:shadow-accent/10">
       {achievement.image ? (
         <Image
           src={achievement.image}
@@ -22,7 +22,7 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
           <h3 className="text-xl font-bold text-primary">{achievement.title}</h3>
           <p className="mt-1 text-sm font-semibold text-accent">{achievement.organization}</p>
         </div>
-        <span className="shrink-0 rounded-full bg-accent/5 px-3 py-1 text-xs font-bold text-secondary">
+        <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
           {achievement.year}
         </span>
       </div>

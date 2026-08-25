@@ -22,7 +22,7 @@ export function Navbar() {
       return;
     }
 
-    const sectionIds = [...navItems.map((item) => item.sectionId), "contact"];
+    const sectionIds = ["projects", "skills", "achievements", "about", "contact"];
     let animationFrame = 0;
 
     const updateActiveSection = () => {

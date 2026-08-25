@@ -11,6 +11,10 @@ type ProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+function getSectionId(title: string) {
+  return title.toLowerCase().replaceAll(" ", "-");
+}
+
 export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
@@ -41,92 +45,122 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const currentProjectIndex = projects.findIndex((item) => item.slug === project.slug);
+  const nextProject = projects[(currentProjectIndex + 1) % projects.length];
+
   return (
     <>
       <Navbar />
       <main>
-        <section className="border-b border-border bg-background py-16 sm:py-24">
+        <section className="border-b border-accent/10 bg-accent/5 py-14 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-            <Link href="/#projects" className="text-sm font-bold text-accent hover:text-accent-hover">
-              Back to projects
+            <Link
+              href="/#projects"
+              className="inline-flex rounded-full border border-accent/20 bg-background px-4 py-2 text-sm font-bold text-accent transition hover:border-accent hover:text-accent-hover"
+            >
+              Back to Projects
             </Link>
-            <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.65fr] lg:items-end">
+
+            <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_420px] lg:items-center">
               <div>
-                {project.category ? (
-                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">{project.category}</p>
-                ) : null}
-                <h1 className="mt-4 max-w-3xl text-5xl font-bold leading-tight text-primary sm:text-6xl">
+                <div className="flex flex-wrap gap-2">
+                  {project.category ? (
+                    <span className="rounded-full bg-background px-3 py-1 text-xs font-bold text-accent">
+                      {project.category}
+                    </span>
+                  ) : null}
+                  {project.status ? (
+                    <span className="rounded-full border border-accent/20 bg-background px-3 py-1 text-xs font-bold text-secondary">
+                      {project.status}
+                    </span>
+                  ) : null}
+                </div>
+
+                <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-6xl">
                   {project.title}
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-secondary">{project.description}</p>
-              </div>
-              <aside className="rounded-3xl border border-border bg-accent/5 p-6">
-                <dl className="space-y-4">
-                  {project.status ? (
-                    <div>
-                      <dt className="text-sm font-semibold text-secondary">Status</dt>
-                      <dd className="mt-1 font-bold text-primary">{project.status}</dd>
-                    </div>
-                  ) : null}
-                  <div>
-                    <dt className="text-sm font-semibold text-secondary">Technologies</dt>
-                    <dd className="mt-2 flex flex-wrap gap-2">
-                      {project.technologies.map((technology) => (
-                        <span key={technology} className="rounded-full bg-accent/5 px-3 py-1 text-xs font-semibold text-secondary">
-                          {technology}
-                        </span>
-                      ))}
-                    </dd>
-                  </div>
-                </dl>
-                <div className="mt-5 flex flex-wrap gap-3">
+
+                <div className="mt-8 flex flex-wrap gap-3">
                   {project.github ? (
-                    <a href={project.github} className="text-sm font-bold text-primary hover:text-accent">
+                    <a
+                      href={project.github}
+                      className="inline-flex rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-background transition hover:bg-accent-hover"
+                    >
                       GitHub
                     </a>
                   ) : null}
                   {project.demo ? (
-                    <a href={project.demo} className="text-sm font-bold text-primary hover:text-accent">
+                    <a
+                      href={project.demo}
+                      className="inline-flex rounded-full border border-accent/20 bg-background px-5 py-2.5 text-sm font-bold text-primary transition hover:border-accent hover:text-accent"
+                    >
                       Live Demo
                     </a>
                   ) : null}
                 </div>
-              </aside>
+              </div>
+
+              <div className="overflow-hidden rounded-[2rem] border border-accent/10 bg-background p-3 shadow-xl shadow-accent/10">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} case study preview`}
+                  width={900}
+                  height={560}
+                  className="aspect-[16/11] w-full rounded-[1.5rem] object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="border-b border-border bg-background py-12">
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-            <div className="overflow-hidden rounded-[2rem] border border-border bg-accent/5 p-4">
-              <Image
-                src={project.image}
-                alt={`${project.title} case study preview`}
-                width={1200}
-                height={720}
-                className="aspect-[16/9] w-full rounded-[1.5rem] object-cover"
-                priority
-              />
+        <section className="border-b border-border bg-background py-10">
+          <div className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-3 sm:px-6 lg:px-8">
+            <div className="rounded-3xl border border-border p-5">
+              <p className="text-sm font-semibold text-secondary">Status</p>
+              <p className="mt-2 text-lg font-bold text-primary">{project.status ?? "Case Study"}</p>
+            </div>
+            <div className="rounded-3xl border border-border p-5">
+              <p className="text-sm font-semibold text-secondary">Category</p>
+              <p className="mt-2 text-lg font-bold text-primary">{project.category ?? "Project"}</p>
+            </div>
+            <div className="rounded-3xl border border-border p-5">
+              <p className="text-sm font-semibold text-secondary">Stack</p>
+              <p className="mt-2 text-lg font-bold text-primary">{project.technologies.slice(0, 2).join(", ")}</p>
             </div>
           </div>
         </section>
 
         <section className="bg-background py-16 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[240px_1fr] lg:px-8">
-            <aside className="rounded-3xl border border-border p-6 lg:sticky lg:top-24 lg:self-start">
+            <aside className="rounded-3xl border border-border bg-background p-6 lg:sticky lg:top-24 lg:self-start">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Case Study</p>
-              <nav className="mt-5 flex flex-col gap-3" aria-label="Case study sections">
+              <nav className="mt-5 flex flex-col gap-1" aria-label="Case study sections">
                 {project.sections.map((section) => (
-                  <a key={section.title} href={`#${section.title.toLowerCase().replaceAll(" ", "-")}`} className="text-sm font-semibold text-secondary hover:text-accent">
+                  <a
+                    key={section.title}
+                    href={`#${getSectionId(section.title)}`}
+                    className="rounded-full px-3 py-2 text-sm font-semibold text-secondary transition hover:bg-accent/5 hover:text-accent"
+                  >
                     {section.title}
                   </a>
                 ))}
               </nav>
             </aside>
-            <div className="space-y-10">
-              {project.sections.map((section) => (
-                <article key={section.title} id={section.title.toLowerCase().replaceAll(" ", "-")} className="rounded-3xl border border-border p-7">
-                  <h2 className="text-2xl font-bold text-primary">{section.title}</h2>
+            <div className="space-y-6">
+              {project.sections.map((section, index) => (
+                <article
+                  key={section.title}
+                  id={getSectionId(section.title)}
+                  className="scroll-mt-28 rounded-3xl border border-border bg-background p-7 shadow-sm shadow-border/60"
+                >
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h2 className="text-2xl font-bold text-primary">{section.title}</h2>
+                  </div>
                   <div className="mt-4 space-y-4">
                     {section.body.map((paragraph) => (
                       <p key={paragraph} className="text-base leading-8 text-secondary">
@@ -139,6 +173,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           </div>
         </section>
+
+        {nextProject ? (
+          <section className="border-t border-border bg-accent/5 py-14">
+            <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Next Case Study</p>
+                <h2 className="mt-2 text-3xl font-bold text-primary">{nextProject.title}</h2>
+              </div>
+              <Link
+                href={`/projects/${nextProject.slug}`}
+                className="inline-flex w-fit rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-background transition hover:bg-accent-hover"
+              >
+                View Project
+              </Link>
+            </div>
+          </section>
+        ) : null}
 
         <Contact />
       </main>
