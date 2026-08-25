@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 const navItems = [
   { label: "Projects", href: "/#projects", sectionId: "projects" },
+  { label: "Skills", href: "/#skills", sectionId: "skills" },
   { label: "Achievements", href: "/#achievements", sectionId: "achievements" },
   { label: "About", href: "/#about", sectionId: "about" },
 ];
@@ -71,6 +72,18 @@ export function Navbar() {
   }, [pathname]);
 
   const isHomePage = pathname === "/";
+  const isProjectsPage = pathname.startsWith("/projects");
+
+  const scrollToTop = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (!isHomePage) {
+      return;
+    }
+
+    event.preventDefault();
+    setActiveSection("");
+    window.history.pushState(null, "", "/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const scrollToSection = (sectionId: string) => (event: MouseEvent<HTMLAnchorElement>) => {
     if (!isHomePage) {
@@ -101,12 +114,12 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-50 bg-background/95 shadow-[0_4px_14px_rgba(37,99,235,0.10)] backdrop-blur">
       <nav
         className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-5 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <Link href="/" className="text-sm font-bold uppercase tracking-[0.18em] text-primary">
+        <Link href="/" onClick={scrollToTop} className="text-lg font-bold uppercase tracking-[0.18em] text-primary">
           ALAN
         </Link>
         <div className="hidden items-center gap-1 md:flex">
@@ -116,7 +129,7 @@ export function Navbar() {
               href={item.href}
               onClick={scrollToSection(item.sectionId)}
               className={`rounded-full px-3 py-2 text-sm font-medium transition hover:bg-accent/5 hover:text-accent ${
-                isHomePage && activeSection === item.sectionId
+                (isHomePage && activeSection === item.sectionId) || (isProjectsPage && item.sectionId === "projects")
                   ? "bg-accent/10 text-accent"
                   : "text-secondary"
               }`}

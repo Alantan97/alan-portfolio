@@ -1,4 +1,10 @@
+import Image from "next/image";
 import { profile, socialLinks } from "@/data/profile";
+
+const socialIcons: Record<string, string> = {
+  GitHub: "/github.png",
+  LinkedIn: "/linkedin.png",
+};
 
 export function Hero() {
   return (
@@ -37,8 +43,11 @@ export function Hero() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-secondary transition hover:border-accent hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-secondary transition hover:border-accent hover:text-accent"
               >
+                {socialIcons[link.label] ? (
+                  <Image src={socialIcons[link.label]} alt="" width={18} height={18} className="h-[18px] w-[18px]" />
+                ) : null}
                 {link.label}
               </a>
             ))}

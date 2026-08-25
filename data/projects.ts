@@ -27,8 +27,6 @@ export const projects: Project[] = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     status: "In Progress",
     category: "Final Year Project",
-    github: "#",
-    demo: "#",
     featured: true,
     sections: [
       {
@@ -72,7 +70,6 @@ export const projects: Project[] = [
     technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
     status: "Case Study Draft",
     category: "Management System",
-    github: "#",
     featured: true,
     sections: [
       {
@@ -110,8 +107,6 @@ export const projects: Project[] = [
     technologies: ["Flutter", "Firebase", "UI/UX"],
     status: "Case Study Draft",
     category: "Campus App",
-    github: "#",
-    demo: "#",
     featured: true,
     sections: [
       {

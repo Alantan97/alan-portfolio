@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 type ProjectPageProps = {
@@ -13,6 +14,10 @@ type ProjectPageProps = {
 
 function getSectionId(title: string) {
   return title.toLowerCase().replaceAll(" ", "-");
+}
+
+function hasValidUrl(url?: string): url is string {
+  return Boolean(url && url !== "#");
 }
 
 export function generateStaticParams() {
@@ -47,19 +52,35 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const currentProjectIndex = projects.findIndex((item) => item.slug === project.slug);
   const nextProject = projects[(currentProjectIndex + 1) % projects.length];
+  const hasGithubLink = hasValidUrl(project.github);
+  const hasDemoLink = hasValidUrl(project.demo);
 
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <main>
         <section className="border-b border-accent/10 bg-accent/5 py-14 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-            <Link
-              href="/#projects"
-              className="inline-flex rounded-full border border-accent/20 bg-background px-4 py-2 text-sm font-bold text-accent transition hover:border-accent hover:text-accent-hover"
-            >
-              Back to Projects
-            </Link>
+            <nav aria-label="Breadcrumb">
+              <ol className="flex flex-wrap items-center gap-2 text-sm font-semibold">
+                <li>
+                  <Link href="/" className="text-secondary transition hover:text-accent">
+                    Home
+                  </Link>
+                </li>
+                <li className="text-secondary">/</li>
+                <li>
+                  <Link href="/#projects" className="text-secondary transition hover:text-accent">
+                    Projects
+                  </Link>
+                </li>
+                <li className="text-secondary">/</li>
+                <li className="text-accent" aria-current="page">
+                  {project.title}
+                </li>
+              </ol>
+            </nav>
 
             <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_420px] lg:items-center">
               <div>
@@ -82,7 +103,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-secondary">{project.description}</p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {project.github ? (
+                  {hasGithubLink ? (
                     <a
                       href={project.github}
                       className="inline-flex rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-background transition hover:bg-accent-hover"
@@ -90,7 +111,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       GitHub
                     </a>
                   ) : null}
-                  {project.demo ? (
+                  {hasDemoLink ? (
                     <a
                       href={project.demo}
                       className="inline-flex rounded-full border border-accent/20 bg-background px-5 py-2.5 text-sm font-bold text-primary transition hover:border-accent hover:text-accent"
@@ -101,7 +122,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               </div>
 
-              <div className="overflow-hidden rounded-[2rem] border border-accent/10 bg-background p-3 shadow-xl shadow-accent/10">
+              <div className="overflow-hidden rounded-[2rem] bg-background p-3 shadow-[0_8px_20px_rgba(37,99,235,0.20)]">
                 <Image
                   src={project.image}
                   alt={`${project.title} case study preview`}
@@ -117,15 +138,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <section className="border-b border-border bg-background py-10">
           <div className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-3 sm:px-6 lg:px-8">
-            <div className="rounded-3xl border border-border p-5">
+            <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
               <p className="text-sm font-semibold text-secondary">Status</p>
               <p className="mt-2 text-lg font-bold text-primary">{project.status ?? "Case Study"}</p>
             </div>
-            <div className="rounded-3xl border border-border p-5">
+            <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
               <p className="text-sm font-semibold text-secondary">Category</p>
               <p className="mt-2 text-lg font-bold text-primary">{project.category ?? "Project"}</p>
             </div>
-            <div className="rounded-3xl border border-border p-5">
+            <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
               <p className="text-sm font-semibold text-secondary">Stack</p>
               <p className="mt-2 text-lg font-bold text-primary">{project.technologies.slice(0, 2).join(", ")}</p>
             </div>
@@ -134,7 +155,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <section className="bg-background py-16 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[240px_1fr] lg:px-8">
-            <aside className="rounded-3xl border border-border bg-background p-6 lg:sticky lg:top-24 lg:self-start">
+            <aside className="rounded-3xl bg-background p-6 shadow-[0_6px_14px_rgba(37,99,235,0.16)] lg:sticky lg:top-24 lg:self-start">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Case Study</p>
               <nav className="mt-5 flex flex-col gap-1" aria-label="Case study sections">
                 {project.sections.map((section) => (
@@ -153,7 +174,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <article
                   key={section.title}
                   id={getSectionId(section.title)}
-                  className="scroll-mt-28 rounded-3xl border border-border bg-background p-7 shadow-sm shadow-border/60"
+                  className="scroll-mt-28 rounded-3xl bg-background p-7 shadow-[0_6px_14px_rgba(37,99,235,0.16)]"
                 >
                   <div className="flex items-center gap-4">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">

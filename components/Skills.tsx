@@ -6,8 +6,7 @@ export function Skills() {
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Skills</p>
-            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Tools and technologies.</h2>
+            <h2 className="text-3xl font-bold text-accent sm:text-4xl">Skills</h2>
             <p className="mt-4 text-sm leading-6 text-secondary sm:text-base">
               The languages, frameworks, and tools I use to design, build, test, and ship software projects.
             </p>
@@ -18,7 +17,7 @@ export function Skills() {
           {skills.map((group) => (
             <article
               key={group.category}
-              className="rounded-[2rem] border border-accent/10 bg-background p-6 shadow-sm shadow-accent/5 transition hover:-translate-y-1 hover:border-accent hover:shadow-xl hover:shadow-accent/10"
+              className="rounded-[2rem] bg-background p-6 shadow-[0_6px_14px_rgba(37,99,235,0.16)] transition hover:-translate-y-1 hover:shadow-[0_10px_22px_rgba(37,99,235,0.22)]"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
                 {group.category.slice(0, 2)}

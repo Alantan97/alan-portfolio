@@ -9,13 +9,12 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Projects</p>
-            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Selected work.</h2>
+            <h2 className="text-3xl font-bold text-accent sm:text-4xl">Projects</h2>
             <p className="mt-4 text-sm leading-6 text-secondary sm:text-base">
               A quick look at my strongest work, including ongoing builds, coursework, and case-study projects.
             </p>
           </div>
-          <p className="text-sm font-semibold text-secondary">{selectedProjects.length} case studies</p>
+          <p className="text-sm font-semibold text-secondary">{selectedProjects.length} projects</p>
         </div>
         {featuredProject ? (
           <div className="mt-12">

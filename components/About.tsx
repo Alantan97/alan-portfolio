@@ -14,10 +14,10 @@ export function About() {
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_380px] lg:items-center">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">About</p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-bold leading-tight text-primary sm:text-4xl">
+            <h2 className="text-3xl font-bold text-accent sm:text-4xl">About</h2>
+            <p className="mt-4 max-w-3xl text-2xl font-bold leading-tight text-primary sm:text-3xl">
               Building practical software with a focus on clarity, usability, and maintainable code.
-            </h2>
+            </p>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-secondary">{profile.about}</p>
 
             <dl className="mt-10 grid gap-x-8 gap-y-6 border-y border-border py-8 sm:grid-cols-2">
@@ -30,7 +30,7 @@ export function About() {
             </dl>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-accent/10 bg-accent/5 p-3">
+          <div className="overflow-hidden rounded-[2rem] bg-background p-3 shadow-[0_6px_16px_rgba(37,99,235,0.18)]">
             <Image
               src={profile.profileImage}
               alt={`${profile.name} portrait`}
