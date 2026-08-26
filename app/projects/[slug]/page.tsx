@@ -100,6 +100,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-6xl">
                   {project.title}
                 </h1>
+                {project.subtitle ? (
+                  <p className="mt-3 max-w-3xl text-2xl font-bold leading-tight text-accent sm:text-3xl">
+                    {project.subtitle}
+                  </p>
+                ) : null}
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-secondary">{project.description}</p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -125,7 +130,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <div className="overflow-hidden rounded-[2rem] bg-background p-3 shadow-[0_8px_20px_rgba(37,99,235,0.20)]">
                 <Image
                   src={project.image}
-                  alt={`${project.title} case study preview`}
+                  alt={`${project.title} project preview`}
                   width={900}
                   height={560}
                   className="aspect-[16/11] w-full rounded-[1.5rem] object-cover"
@@ -140,7 +145,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-3 sm:px-6 lg:px-8">
             <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
               <p className="text-sm font-semibold text-secondary">Status</p>
-              <p className="mt-2 text-lg font-bold text-primary">{project.status ?? "Case Study"}</p>
+              <p className="mt-2 text-lg font-bold text-primary">{project.status ?? "Project"}</p>
             </div>
             <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
               <p className="text-sm font-semibold text-secondary">Category</p>
@@ -156,8 +161,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="bg-background py-16 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[240px_1fr] lg:px-8">
             <aside className="rounded-3xl bg-background p-6 shadow-[0_6px_14px_rgba(37,99,235,0.16)] lg:sticky lg:top-24 lg:self-start">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Case Study</p>
-              <nav className="mt-5 flex flex-col gap-1" aria-label="Case study sections">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Project</p>
+              <nav className="mt-5 flex flex-col gap-1" aria-label="Project sections">
                 {project.sections.map((section) => (
                   <a
                     key={section.title}
@@ -199,7 +204,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <section className="border-t border-border bg-accent/5 py-14">
             <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Next Case Study</p>
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Next Project</p>
                 <h2 className="mt-2 text-3xl font-bold text-primary">{nextProject.title}</h2>
               </div>
               <Link

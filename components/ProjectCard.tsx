@@ -42,6 +42,11 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             {project.title}
           </Link>
         </h3>
+        {project.subtitle ? (
+          <p className={`${featured ? "mt-2 text-xl sm:text-2xl" : "mt-2 text-base"} font-semibold text-accent`}>
+            {project.subtitle}
+          </p>
+        ) : null}
         <p className={`${featured ? "mt-4 text-base leading-7" : "mt-3 text-sm leading-6"} text-secondary`}>{project.description}</p>
         <div className="mt-6 flex flex-wrap gap-2">
           {project.technologies.map((technology) => (

@@ -6,6 +6,7 @@ export type CaseStudySection = {
 export type Project = {
   slug: string;
   title: string;
+  subtitle?: string;
   description: string;
   image: string;
   technologies: string[];
@@ -21,42 +22,62 @@ export const projects: Project[] = [
   {
     slug: "planova",
     title: "Planova",
+    subtitle: "AI-Powered Adaptive Study Planner",
     description:
-      "An ongoing Final Year Project focused on planning, tracking, and organizing work through a clean productivity experience.",
+      "A mobile study planning application that helps university students prioritize academic tasks and automatically generate and adjust study schedules based on deadlines, progress, and task completion.",
     image: "/projects/project-dashboard.svg",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    status: "In Progress",
+    technologies: ["Flutter", "Firebase", "Python", "LambdaMART", "Genetic Algorithm"],
+    status: "Final Year Project - In Progress",
     category: "Final Year Project",
     featured: true,
     sections: [
       {
         title: "Project overview",
         body: [
-          "Planova is an ongoing Final Year Project exploring how students and project teams can organize goals, tasks, and progress in one focused workspace.",
+          "Planova is an AI-powered adaptive study planner designed for university students who need help managing academic tasks, deciding what to work on first, and adjusting their study plans when progress changes.",
+          "The project focuses on turning task data, deadlines, completion progress, and study behavior into a more intelligent planning experience inside an Android mobile application.",
         ],
       },
       {
         title: "Problem",
         body: [
-          "Planning information is often spread across notes, chats, calendars, and task lists. This makes it harder to understand priorities and maintain momentum over a long project.",
+          "University students often struggle with time management and completing academic tasks efficiently.",
+          "Students may find it difficult to decide which assignments, study tasks, or deadlines should come first.",
+          "Many study planner applications use manual and static scheduling, so users must update plans themselves when progress changes.",
         ],
       },
       {
         title: "Solution",
         body: [
-          "The project is structured around clear task organization, status visibility, and a simple interface that helps users move from planning to execution.",
+          "Planova combines task and assignment management with AI-based prioritization, adaptive schedule generation, reminders, notifications, a progress dashboard, and study analytics.",
+          "Unlike static planner apps, Planova is designed to automatically rank academic work and adapt study schedules when user progress or task completion changes.",
+        ],
+      },
+      {
+        title: "AI approach",
+        body: [
+          "The Task Prioritization Engine uses LambdaMART to rank academic tasks so students can focus on the most important work first.",
+          "The Adaptive Scheduling Engine uses a Genetic Algorithm to generate study schedules and adjust them when user progress or task completion changes.",
         ],
       },
       {
         title: "Technical implementation",
         body: [
-          "The current implementation plan uses reusable Next.js components, typed project data, and responsive Tailwind layouts so the product can grow without becoming difficult to maintain.",
+          "Planova is planned as an Android mobile application using Flutter for the app interface, Firebase for backend services, and Python for AI-related development.",
+          "The supporting workflow uses Figma for interface planning and VS Code for development.",
+        ],
+      },
+      {
+        title: "Development methodology",
+        body: [
+          "The project follows the Staged Incremental Model, allowing Planova to be developed in clear stages from requirements and system design through AI engine development, app module implementation, dashboard refinement, testing, and deployment.",
+          "The planned stages include requirement analysis, literature and comparative study, system design, database design, UI wireframes, Task Prioritization Engine development, Adaptive Scheduling Engine development, Study Planning Module implementation, dashboard and analytics refinement, system testing, User Acceptance Testing, bug fixing, and Android deployment.",
         ],
       },
       {
         title: "Current status",
         body: [
-          "Planova is currently in progress as a Final Year Project. Replace this section with development milestones, supervisor feedback, testing notes, and final outcomes as the project develops.",
+          "Planova is currently in progress as a Final Year Project. The project is being developed with Flutter, Firebase, Python, Figma, and VS Code using a Staged Incremental Model.",
         ],
       },
     ],
@@ -68,7 +89,7 @@ export const projects: Project[] = [
       "A service management system concept for handling customers, vehicles, repairs, and workshop job progress.",
     image: "/projects/project-api.svg",
     technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
-    status: "Case Study Draft",
+    status: "Project Draft",
     category: "Management System",
     featured: true,
     sections: [
@@ -105,7 +126,7 @@ export const projects: Project[] = [
       "A mobile-first campus parcel concept that helps students track parcel status and pickup information.",
     image: "/projects/project-mobile.svg",
     technologies: ["Flutter", "Firebase", "UI/UX"],
-    status: "Case Study Draft",
+    status: "Project Draft",
     category: "Campus App",
     featured: true,
     sections: [
@@ -142,7 +163,7 @@ export const projects: Project[] = [
       "An interactive narrative project concept focused on memory, choices, and reflective user experience.",
     image: "/projects/project-memory.svg",
     technologies: ["JavaScript", "Game Design", "UI/UX"],
-    status: "Case Study Draft",
+    status: "Project Draft",
     category: "Interactive Experience",
     featured: true,
     sections: [
@@ -161,7 +182,7 @@ export const projects: Project[] = [
       {
         title: "Solution",
         body: [
-          "The case study can document how story structure, interface decisions, and progression logic work together to create a reflective experience.",
+          "The project page can document how story structure, interface decisions, and progression logic work together to create a reflective experience.",
         ],
       },
       {
