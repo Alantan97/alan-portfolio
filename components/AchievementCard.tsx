@@ -26,7 +26,7 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
           {achievement.year}
         </span>
       </div>
-      <p className="mt-4 text-sm leading-6 text-secondary">{achievement.description}</p>
+      <p className="mt-4 text-base leading-8 text-secondary">{achievement.description}</p>
     </article>
   );
 

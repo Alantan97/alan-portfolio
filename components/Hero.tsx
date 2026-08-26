@@ -21,7 +21,7 @@ export function Hero() {
             {profile.name}
           </h1>
           <p className="mt-4 text-3xl font-bold text-accent sm:text-5xl">{profile.title}</p>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-secondary">{profile.summary}</p>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-secondary">{profile.summary}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#projects"

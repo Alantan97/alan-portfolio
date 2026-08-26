@@ -5,7 +5,7 @@ export function Timeline() {
     <section id="experience" className="border-b border-border bg-background py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Experience</p>
+          <p className="text-sm font-bold uppercase text-accent">Experience</p>
           <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Activities and experience.</h2>
         </div>
         <div className="mt-10 space-y-6">
@@ -15,7 +15,7 @@ export function Timeline() {
               <div>
                 <h3 className="text-lg font-bold text-primary">{item.title}</h3>
                 <p className="mt-1 text-sm font-semibold text-secondary">{item.organization}</p>
-                <p className="mt-3 text-sm leading-6 text-secondary">{item.description}</p>
+                <p className="mt-3 text-base leading-8 text-secondary">{item.description}</p>
               </div>
             </article>
           ))}

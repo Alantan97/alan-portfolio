@@ -101,11 +101,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {project.title}
                 </h1>
                 {project.subtitle ? (
-                  <p className="mt-3 max-w-3xl text-2xl font-bold leading-tight text-accent sm:text-3xl">
+                  <p className="mt-3 max-w-3xl text-2xl font-bold leading-tight text-primary sm:text-3xl">
                     {project.subtitle}
                   </p>
                 ) : null}
-                <p className="mt-5 max-w-3xl text-lg leading-8 text-secondary">{project.description}</p>
+                <p className="mt-5 max-w-3xl text-base leading-8 text-secondary">{project.description}</p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   {hasGithubLink ? (
@@ -161,7 +161,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <section className="bg-background py-16 sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[240px_1fr] lg:px-8">
             <aside className="rounded-3xl bg-background p-6 shadow-[0_6px_14px_rgba(37,99,235,0.16)] lg:sticky lg:top-24 lg:self-start">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Project</p>
+              <p className="text-sm font-bold uppercase text-accent">Project</p>
               <nav className="mt-5 flex flex-col gap-1" aria-label="Project sections">
                 {project.sections.map((section) => (
                   <a
@@ -204,7 +204,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <section className="border-t border-border bg-accent/5 py-14">
             <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent">Next Project</p>
+                <p className="text-sm font-bold uppercase text-accent">Next Project</p>
                 <h2 className="mt-2 text-3xl font-bold text-primary">{nextProject.title}</h2>
               </div>
               <Link

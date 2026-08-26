@@ -25,9 +25,9 @@ export const projects: Project[] = [
     subtitle: "AI-Powered Adaptive Study Planner",
     description:
       "A mobile study planning application that helps university students prioritize academic tasks and automatically generate and adjust study schedules based on deadlines, progress, and task completion.",
-    image: "/projects/project-dashboard.svg",
+    image: "/planovaCover.png",
     technologies: ["Flutter", "Firebase", "Python", "LambdaMART", "Genetic Algorithm"],
-    status: "Final Year Project - In Progress",
+    status: "In Progress",
     category: "Final Year Project",
     featured: true,
     sections: [

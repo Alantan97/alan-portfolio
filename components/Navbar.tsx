@@ -119,7 +119,7 @@ export function Navbar() {
         className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-5 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <Link href="/" onClick={scrollToTop} className="text-lg font-bold uppercase tracking-[0.18em] text-primary">
+        <Link href="/" onClick={scrollToTop} className="text-lg font-bold uppercase text-primary">
           ALAN
         </Link>
         <div className="hidden items-center gap-1 md:flex">

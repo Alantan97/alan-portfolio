@@ -18,13 +18,13 @@ export function About() {
             <p className="mt-4 max-w-3xl text-2xl font-bold leading-tight text-primary sm:text-3xl">
               Building practical software with a focus on clarity, usability, and maintainable code.
             </p>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-secondary">{profile.about}</p>
+            <p className="mt-6 max-w-3xl text-base leading-8 text-secondary">{profile.about}</p>
 
             <dl className="mt-10 grid gap-x-8 gap-y-6 border-y border-border py-8 sm:grid-cols-2">
               {details.map((detail) => (
                 <div key={detail.label}>
                   <dt className="text-sm font-bold text-primary">{detail.label}</dt>
-                  <dd className="mt-2 text-sm leading-6 text-secondary">{detail.value}</dd>
+                  <dd className="mt-2 text-base leading-8 text-secondary">{detail.value}</dd>
                 </div>
               ))}
             </dl>

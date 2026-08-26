@@ -7,7 +7,7 @@ export function Skills() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <h2 className="text-3xl font-bold text-accent sm:text-4xl">Skills</h2>
-            <p className="mt-4 text-sm leading-6 text-secondary sm:text-base">
+            <p className="mt-4 text-base leading-8 text-secondary">
               The languages, frameworks, and tools I use to design, build, test, and ship software projects.
             </p>
           </div>

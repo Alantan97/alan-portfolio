@@ -15,7 +15,7 @@ export function Contact() {
             Open to internship opportunities
           </p>
           <h2 className="mt-5 text-3xl font-bold text-background sm:text-4xl">Let&apos;s Connect</h2>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-gray-300">
+          <p className="mt-5 max-w-2xl text-base leading-8 text-gray-300">
             Have an internship opportunity, project idea, or collaboration in mind? I&apos;d be happy to connect.
           </p>
         </div>
