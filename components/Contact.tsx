@@ -20,9 +20,9 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="rounded-[2rem] bg-white/5 p-7">
+        <div className="rounded-4xl bg-white/5 p-7">
           <p className="text-sm font-semibold text-gray-300">Email</p>
-          <p className="mt-2 break-words text-xl font-bold text-background">
+          <p className="mt-2 wrap-break-word text-xl font-bold text-background">
             {profile.email}
           </p>
 
