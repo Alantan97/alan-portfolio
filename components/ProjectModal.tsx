@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
-import type { Project } from "@/data/projects";
+import type { CaseStudyBodyItem, CaseStudySection, Project } from "@/data/projects";
 
 type ProjectModalProps = {
   project: Project | null;
@@ -11,6 +11,124 @@ type ProjectModalProps = {
 
 function isUsableLink(link?: string) {
   return Boolean(link && link !== "#");
+}
+
+function formatSectionTitle(title: string) {
+  return title
+    .split(" ")
+    .map((word) => {
+      if (word.toLowerCase() === "ai") {
+        return "AI";
+      }
+
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
+}
+
+function getBodyItemText(item: CaseStudyBodyItem) {
+  return typeof item === "string" ? item : item.text;
+}
+
+function getBodyItemVariant(item: CaseStudyBodyItem) {
+  return typeof item === "string" ? "bullet" : item.variant;
+}
+
+const linkIcons: Record<string, string> = {
+  GitHub: "/github-white.png",
+};
+
+const linkStyles: Record<string, string> = {
+  GitHub: "bg-accent text-background hover:bg-accent-hover",
+  Demo: "border border-accent/20 bg-background text-primary hover:border-accent hover:text-accent",
+};
+
+const iconStyles: Record<string, string> = {
+  GitHub: "brightness-0 invert",
+};
+
+function ProjectLinkIcon({ label }: { label: string }) {
+  if (label === "Demo") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20" />
+        <path d="M12 2a15.3 15.3 0 0 1 0 20" />
+        <path d="M12 2a15.3 15.3 0 0 0 0 20" />
+      </svg>
+    );
+  }
+
+  return <Image src={linkIcons[label]} alt="" width={16} height={16} className={`h-4 w-4 ${iconStyles[label]}`} />;
+}
+
+function ProjectLink({
+  href,
+  label,
+}: {
+  href?: string;
+  label: string;
+}) {
+  if (!isUsableLink(href)) {
+    return (
+      <button
+        type="button"
+        className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition ${linkStyles[label]}`}
+      >
+        <ProjectLinkIcon label={label} />
+        {label}
+      </button>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition ${linkStyles[label]}`}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <ProjectLinkIcon label={label} />
+      {label}
+    </a>
+  );
+}
+
+function ProjectSection({ section }: { section: CaseStudySection }) {
+  return (
+    <section className="rounded-3xl bg-accent/5 p-5">
+      <h3 className="text-xl font-bold text-primary">{formatSectionTitle(section.title)}</h3>
+      <div className="mt-3 space-y-3">
+        {section.body.map((item) => {
+          const text = getBodyItemText(item);
+
+          if (getBodyItemVariant(item) === "paragraph") {
+            return (
+              <p key={text} className="text-base leading-8 text-secondary">
+                {text}
+              </p>
+            );
+          }
+
+          return (
+            <div key={text} className="flex gap-3 text-base leading-8 text-secondary">
+              <span className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" aria-hidden="true" />
+              <span>{text}</span>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
@@ -38,6 +156,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   if (!project) {
     return null;
   }
+
+  const problemSection = project.sections.find((section) => section.title.toLowerCase() === "problem");
+  const solutionSection = project.sections.find((section) => section.title.toLowerCase() === "solution");
+  const headerVisual = project.icon ?? project.image;
 
   return (
     <div
@@ -72,90 +194,75 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         <div className="project-modal-scroll max-h-[90vh] overflow-y-auto rounded-4xl bg-background shadow-[0_18px_45px_rgba(17,24,39,0.18)]">
-          <div className="p-5 sm:p-8">
-            <div className="overflow-hidden rounded-3xl bg-accent/5">
-              <Image
-                src={project.image}
-                alt={`${project.title} project preview`}
-                width={1100}
-                height={640}
-                className="aspect-[16/9] w-full object-cover"
-                priority
-              />
+          <div className="px-7 py-6 sm:px-10 sm:py-10">
+            <div className="grid gap-8 md:grid-cols-[1fr_220px] md:items-start">
+              <div>
+                <div className="flex flex-wrap gap-2">
+                  {project.platform ? (
+                    <span className="w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
+                      {project.platform}
+                    </span>
+                  ) : null}
+                  {project.category ? (
+                    <span className="w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
+                      {project.category}
+                    </span>
+                  ) : null}
+                </div>
+                <h2 id="project-modal-title" className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl">
+                  {project.title}
+                </h2>
+                {project.subtitle ? (
+                  <p className="mt-2 text-lg font-bold text-primary sm:text-xl">{project.subtitle}</p>
+                ) : null}
+
+                <div className="mt-7 flex flex-wrap gap-2">
+                  {project.technologies.map((technology) => (
+                    <span key={technology} className="rounded-full bg-accent/5 px-3 py-1 text-xs font-semibold text-secondary">
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-7 flex flex-wrap gap-2">
+                  <ProjectLink href={project.github} label="GitHub" />
+                  <ProjectLink href={project.demo} label="Demo" />
+                </div>
+              </div>
+
+              <div className="flex justify-start md:justify-end">
+                <div className="flex h-36 w-36 items-center justify-center overflow-hidden rounded-3xl bg-accent/5 sm:h-44 sm:w-44">
+                  <Image
+                    src={headerVisual}
+                    alt={`${project.title} icon`}
+                    width={180}
+                    height={180}
+                    className="h-full w-full object-contain"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
 
-            <div className="mt-8">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  {project.category ? (
-                    <p className="text-xs font-bold uppercase text-accent">{project.category}</p>
-                  ) : null}
-                  <h2 id="project-modal-title" className="mt-3 text-3xl font-bold leading-tight text-primary sm:text-4xl">
-                    {project.title}
-                  </h2>
-                  {project.subtitle ? (
-                    <p className="mt-2 text-lg font-bold text-primary sm:text-xl">{project.subtitle}</p>
-                  ) : null}
-                </div>
-                {project.status ? (
-                  <span className="shrink-0 rounded-full bg-accent/5 px-3 py-1 text-xs font-semibold text-secondary">
-                    {project.status}
-                  </span>
-                ) : null}
-              </div>
-              <p className="mt-5 text-base leading-8 text-secondary">{project.description}</p>
+            <div className="mt-9 space-y-8">
+              {project.sections.map((section) => {
+                const sectionTitle = section.title.toLowerCase();
 
-              <div className="mt-7 flex flex-wrap gap-2">
-                {project.technologies.map((technology) => (
-                  <span
-                    key={technology}
-                    className="rounded-full border border-accent/15 bg-accent/5 px-3 py-1 text-xs font-semibold text-accent"
-                  >
-                    {technology}
-                  </span>
-                ))}
-              </div>
+                if (problemSection && solutionSection && sectionTitle === "problem") {
+                  return (
+                    <div key="problem-solution" className="grid gap-8 md:grid-cols-2">
+                      <ProjectSection section={problemSection} />
+                      <ProjectSection section={solutionSection} />
+                    </div>
+                  );
+                }
 
-              {(isUsableLink(project.github) || isUsableLink(project.demo)) && (
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {isUsableLink(project.github) ? (
-                    <a
-                      href={project.github}
-                      className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-background transition hover:bg-accent-hover"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      GitHub
-                    </a>
-                  ) : null}
-                  {isUsableLink(project.demo) ? (
-                    <a
-                      href={project.demo}
-                      className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-background transition hover:bg-accent-hover"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Demo
-                    </a>
-                  ) : null}
-                </div>
-              )}
+                if (problemSection && solutionSection && sectionTitle === "solution") {
+                  return null;
+                }
 
-              <div className="mt-9 space-y-8">
-                {project.sections.map((section) => (
-                  <section key={section.title}>
-                    <h3 className="text-xl font-bold text-primary">{section.title}</h3>
-                    <ul className="mt-3 space-y-3">
-                      {section.body.map((paragraph) => (
-                        <li key={paragraph} className="flex gap-3 text-base leading-8 text-secondary">
-                          <span className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                          <span>{paragraph}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                ))}
-              </div>
+                return <ProjectSection key={section.title} section={section} />;
+              })}
             </div>
           </div>
         </div>

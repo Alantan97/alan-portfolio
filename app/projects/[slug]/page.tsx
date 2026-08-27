@@ -6,7 +6,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { getProjectBySlug, projects, type CaseStudyBodyItem } from "@/data/projects";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -18,6 +18,14 @@ function getSectionId(title: string) {
 
 function hasValidUrl(url?: string): url is string {
   return Boolean(url && url !== "#");
+}
+
+function getBodyItemText(item: CaseStudyBodyItem) {
+  return typeof item === "string" ? item : item.text;
+}
+
+function getBodyItemVariant(item: CaseStudyBodyItem) {
+  return typeof item === "string" ? "paragraph" : item.variant;
 }
 
 export function generateStaticParams() {
@@ -90,11 +98,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       {project.category}
                     </span>
                   ) : null}
-                  {project.status ? (
-                    <span className="rounded-full border border-accent/20 bg-background px-3 py-1 text-xs font-bold text-secondary">
-                      {project.status}
-                    </span>
-                  ) : null}
                 </div>
 
                 <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-6xl">
@@ -142,11 +145,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="border-b border-border bg-background py-10">
-          <div className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-3 sm:px-6 lg:px-8">
-            <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
-              <p className="text-sm font-semibold text-secondary">Status</p>
-              <p className="mt-2 text-lg font-bold text-primary">{project.status ?? "Project"}</p>
-            </div>
+          <div className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-2 sm:px-6 lg:px-8">
             <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
               <p className="text-sm font-semibold text-secondary">Category</p>
               <p className="mt-2 text-lg font-bold text-primary">{project.category ?? "Project"}</p>
@@ -188,11 +187,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <h2 className="text-2xl font-bold text-primary">{section.title}</h2>
                   </div>
                   <div className="mt-4 space-y-4">
-                    {section.body.map((paragraph) => (
-                      <p key={paragraph} className="text-base leading-8 text-secondary">
-                        {paragraph}
-                      </p>
-                    ))}
+                    {section.body.map((item) => {
+                      const text = getBodyItemText(item);
+
+                      if (getBodyItemVariant(item) === "bullet") {
+                        return (
+                          <div key={text} className="flex gap-3 text-base leading-8 text-secondary">
+                            <span className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" aria-hidden="true" />
+                            <span>{text}</span>
+                          </div>
+                        );
+                      }
+
+                      return (
+                        <p key={text} className="text-base leading-8 text-secondary">
+                          {text}
+                        </p>
+                      );
+                    })}
                   </div>
                 </article>
               ))}

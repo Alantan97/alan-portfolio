@@ -13,15 +13,14 @@ export function Projects() {
     <section id="projects" className="border-b border-border bg-background py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
+          <div className="max-w-1xl">
             <h2 className="text-3xl font-bold text-accent sm:text-4xl">Projects</h2>
             <p className="mt-4 text-base leading-8 text-secondary">
               A quick look at my strongest work, including ongoing builds, coursework, and portfolio projects.
             </p>
           </div>
-          <p className="text-sm font-semibold text-secondary">{selectedProjects.length} projects</p>
         </div>
-        <div className="mt-12 grid gap-7 md:grid-cols-2">
+        <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {selectedProjects.map((project) => (
             <ProjectCard key={project.title} project={project} onOpen={setActiveProject} />
           ))}
