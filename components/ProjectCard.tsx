@@ -11,8 +11,8 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project, featured = false, onOpen }: ProjectCardProps) {
   const cardClassName = featured
-    ? "group relative grid cursor-pointer overflow-hidden rounded-4xl border border-transparent bg-background text-left shadow-[0_5px_12px_rgba(37,99,235,0.18)] transition hover:-translate-y-1 hover:border-accent hover:shadow-[0_8px_16px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 lg:grid-cols-[1fr_1fr]"
-    : "group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-3xl border border-transparent bg-background text-left shadow-[0_5px_12px_rgba(37,99,235,0.18)] transition hover:-translate-y-1 hover:border-accent hover:shadow-[0_8px_16px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4";
+    ? "group relative grid cursor-pointer overflow-hidden rounded-4xl border border-transparent bg-background text-left shadow-[0_5px_12px_rgba(37,99,235,0.18)] transition hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_8px_16px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 lg:grid-cols-[1fr_1fr]"
+    : "group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-3xl border border-transparent bg-background text-left shadow-[0_5px_12px_rgba(37,99,235,0.18)] transition hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_8px_16px_rgba(37,99,235,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4";
   const imageClassName = featured
     ? "h-52 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-60 lg:h-full lg:min-h-64"
     : "h-44 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-52";
@@ -84,7 +84,10 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
         <p className="mt-4 text-base leading-8 text-secondary">{project.description}</p>
         <div className="mt-auto flex flex-wrap gap-2 pt-5">
           {project.technologies.map((technology) => (
-            <span key={technology} className="rounded-full bg-accent/5 px-3 py-1 text-xs font-semibold text-secondary">
+            <span
+              key={technology}
+              className="rounded-full bg-accent/5 px-3 py-1 text-xs font-semibold text-secondary transition group-hover:bg-accent/10 group-hover:text-accent group-focus-visible:bg-accent/10 group-focus-visible:text-accent"
+            >
               {technology}
             </span>
           ))}

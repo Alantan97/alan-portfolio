@@ -10,7 +10,7 @@ const details = [
 
 export function About() {
   return (
-    <section id="about" className="border-b border-accent/10 bg-accent/5 py-24">
+    <section id="about" className="bg-accent/3 py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_380px] lg:items-center">
           <div>

@@ -10,7 +10,7 @@ export function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="border-b border-border bg-background py-24">
+    <section id="projects" className="bg-background py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-1xl">

@@ -1,31 +1,40 @@
 import { skills } from "@/data/profile";
 
+const bentoCardClasses: Record<string, string> = {
+  Languages: "lg:col-span-4",
+  "Frontend & Backend": "lg:col-span-2",
+  "AI & Data": "lg:col-span-2",
+  Databases: "",
+  Tools: "",
+  "Game Development": "",
+  Design: "",
+};
+
 export function Skills() {
   return (
-    <section id="skills" className="border-b border-accent/10 bg-accent/5 py-24">
+    <section id="skills" className="bg-accent/3 py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold text-accent sm:text-4xl">Skills</h2>
-            <p className="mt-4 text-base leading-8 text-secondary">
-              The languages, frameworks, and tools I use to design, build, test, and ship software projects.
-            </p>
-          </div>
-          <p className="text-sm font-semibold text-secondary">{skills.length} skill areas</p>
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-bold text-accent sm:text-4xl">Skills</h2>
+          <p className="mt-4 text-base leading-8 text-secondary">
+            The languages, frameworks, and tools I use to design, build, test, and ship software projects.
+          </p>
         </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="mt-10 grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-4">
           {skills.map((group) => (
             <article
               key={group.category}
-              className="rounded-[2rem] bg-background p-6 shadow-[0_6px_14px_rgba(37,99,235,0.16)] transition hover:-translate-y-1 hover:shadow-[0_10px_22px_rgba(37,99,235,0.22)]"
+              className={`group flex h-full min-h-40 flex-col rounded-3xl border border-transparent bg-background p-6 shadow-[0_5px_12px_rgba(37,99,235,0.14)] transition hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-[0_8px_16px_rgba(37,99,235,0.18)] ${bentoCardClasses[group.category] ?? ""}`}
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
-                {group.category.slice(0, 2)}
-              </div>
-              <h3 className="mt-5 text-lg font-bold text-primary">{group.category}</h3>
+              <h3 className="text-lg font-bold text-primary transition group-hover:text-accent">{group.category}</h3>
+
               <div className="mt-5 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <span key={item} className="rounded-full bg-accent/5 px-3 py-1 text-sm font-semibold text-secondary">
+                  <span
+                    key={item}
+                    className="rounded-full bg-accent/5 px-3 py-1 text-sm font-semibold text-secondary transition group-hover:bg-accent/10 group-hover:text-accent"
+                  >
                     {item}
                   </span>
                 ))}

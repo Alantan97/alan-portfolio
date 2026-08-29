@@ -68,7 +68,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <ScrollToTop />
       <Navbar />
       <main>
-        <section className="border-b border-accent/10 bg-accent/5 py-14 sm:py-20">
+        <section className="bg-accent/5 py-14 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
             <nav aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-2 text-sm font-semibold">
@@ -144,7 +144,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        <section className="border-b border-border bg-background py-10">
+        <section className="bg-background py-10">
           <div className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-2 sm:px-6 lg:px-8">
             <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
               <p className="text-sm font-semibold text-secondary">Category</p>
@@ -213,7 +213,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         {nextProject ? (
-          <section className="border-t border-border bg-accent/5 py-14">
+          <section className="bg-accent/5 py-14">
             <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
               <div>
                 <p className="text-sm font-bold uppercase text-accent">Next Project</p>
