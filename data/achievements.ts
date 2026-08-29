@@ -1,6 +1,7 @@
 export type Achievement = {
   title: string;
   organization: string;
+  place?: string;
   year: string;
   description: string;
   image?: string;
@@ -9,18 +10,39 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
-    title: "Achievement Placeholder",
-    organization: "University, Club, or Event Name",
-    year: "2026",
+    title: "Certiport's Adobe Certified Professional\nWorld Championship 2024",
+    organization: "7th Place · International",
+    place: "California, USA",
+    year: "2024",
     description:
-      "Replace this with a real award, certification, competition result, scholarship, or academic milestone when you are ready.",
+      "Ranked 7th among competitors from 47 countries while representing Malaysia.",
+    image: "/7th place.jpg",
   },
   {
-    title: "Certification Placeholder",
-    organization: "Learning Platform or Issuing Organization",
-    year: "2026",
+    title: "Certiport's Microsoft Office Specialist\nWorld Championship 2025",
+    organization: "Finalist · International",
+    place: "Florida, USA",
+    year: "2025",
     description:
-      "Use this space for a verified course, workshop, or certificate that is relevant to internship applications.",
-    link: "#",
+      "Represented Malaysia as a finalist in the Certiport's Microsoft Office Specialist World Championship 2025.",
+    image: "/finalist mos.jpg",
+  },
+  {
+    title: "CCC's Adobe Certified Professional\nMalaysia National Championship 2024",
+    organization: "2nd Place · National",
+    place: "Malaysia",
+    year: "2024",
+    description:
+      "Secured 2nd place nationally and qualified to represent Malaysia at the Adobe Certified Professional World Championship 2024.",
+    image: "/2nd place.jpg",
+  },
+  {
+    title: "CCC's Microsoft Office Specialist\nMalaysia National Championship 2025",
+    organization: "3rd Place · National",
+    place: "Malaysia",
+    year: "2025",
+    description:
+      "Secured 3rd place nationally and qualified to represent Malaysia at the Microsoft Office Specialist World Championship 2025.",
+    image: "/mos 3rd.jpg",
   },
 ];

@@ -11,7 +11,7 @@ export function Projects() {
 
   return (
     <section id="projects" className="bg-background py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-1xl">
             <h2 className="text-3xl font-bold text-accent sm:text-4xl">Projects</h2>

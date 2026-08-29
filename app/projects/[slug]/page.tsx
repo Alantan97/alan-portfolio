@@ -69,7 +69,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Navbar />
       <main>
         <section className="bg-accent/5 py-14 sm:py-20">
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
             <nav aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-2 text-sm font-semibold">
                 <li>
@@ -145,7 +145,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="bg-background py-10">
-          <div className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-2 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-4 px-5 sm:grid-cols-2 sm:px-6 lg:px-8">
             <div className="rounded-3xl bg-background p-5 shadow-[0_5px_14px_rgba(37,99,235,0.15)]">
               <p className="text-sm font-semibold text-secondary">Category</p>
               <p className="mt-2 text-lg font-bold text-primary">{project.category ?? "Project"}</p>
@@ -158,7 +158,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="bg-background py-16 sm:py-24">
-          <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-6 lg:grid-cols-[240px_1fr] lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-6 lg:grid-cols-[240px_1fr] lg:px-8">
             <aside className="rounded-3xl bg-background p-6 shadow-[0_6px_14px_rgba(37,99,235,0.16)] lg:sticky lg:top-24 lg:self-start">
               <p className="text-sm font-bold uppercase text-accent">Project</p>
               <nav className="mt-5 flex flex-col gap-1" aria-label="Project sections">
@@ -214,7 +214,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {nextProject ? (
           <section className="bg-accent/5 py-14">
-            <div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+            <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
               <div>
                 <p className="text-sm font-bold uppercase text-accent">Next Project</p>
                 <h2 className="mt-2 text-3xl font-bold text-primary">{nextProject.title}</h2>

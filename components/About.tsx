@@ -11,7 +11,7 @@ const details = [
 export function About() {
   return (
     <section id="about" className="bg-accent/3 py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_380px] lg:items-center">
           <div>
             <h2 className="text-3xl font-bold text-accent sm:text-4xl">About</h2>
@@ -30,13 +30,13 @@ export function About() {
             </dl>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] bg-background p-3 shadow-[0_6px_16px_rgba(37,99,235,0.18)]">
+          <div className="overflow-hidden rounded-4xl border border-accent/20 shadow-[0_6px_16px_rgba(37,99,235,0.18)]">
             <Image
               src={profile.profileImage}
               alt={`${profile.name} portrait`}
               width={520}
               height={620}
-              className="aspect-[4/5] w-full rounded-[1.5rem] object-contain object-bottom"
+              className="aspect-4/5 w-full object-cover"
             />
           </div>
         </div>

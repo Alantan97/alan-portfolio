@@ -27,7 +27,7 @@ export const profile = {
     "I build software products with a focus on full-stack development, AI, and user experience.",
   about:
     "I am a Software Engineering student interested in creating thoughtful, practical software. I enjoy building practical applications, learning from real user problems, and improving the details that make software easier to use.",
-  profileImage: "/alantxn.png",
+  profileImage: "/talkkk.jpg",
   resumeUrl: "#",
 };
 
@@ -43,7 +43,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Frontend & Backend",
-    items: ["HTML & CSS", "React", "Next.js", "Tailwind CSS", "Flutter", "Laravel"],
+    items: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS", "Flutter", "Laravel"],
   },
   {
     category: "AI & Data",
@@ -54,16 +54,12 @@ export const skills: SkillGroup[] = [
     items: ["MySQL", "Firebase"],
   },
   {
-    category: "Tools",
-    items: ["Git", "GitHub"],
+    category: "Dev & Design Tools",
+    items: ["Git", "GitHub", "Figma", "Photoshop"],
   },
   {
     category: "Game Development",
     items: ["Unity"],
-  },
-  {
-    category: "Design",
-    items: ["Figma", "Photoshop", "Illustrator"],
   },
 ];
 

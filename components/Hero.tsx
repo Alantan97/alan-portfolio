@@ -14,7 +14,7 @@ export function Hero() {
       style={{ backgroundImage: "url('/bg.png')" }}
     >
       
-      <div className="relative mx-auto flex min-h-[calc(100vh-81px)] max-w-6xl items-center px-5 py-20 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex min-h-[calc(100vh-81px)] max-w-7xl items-center px-5 py-20 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-2xl font-semibold text-secondary">Hi, I am</p>
           <h1 className="mt-2 max-w-3xl text-5xl font-bold leading-tight text-primary sm:text-7xl">
@@ -46,7 +46,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-secondary transition hover:border-accent hover:text-accent"
               >
                 {socialIcons[link.label] ? (
-                  <Image src={socialIcons[link.label]} alt="" width={18} height={18} className="h-[18px] w-[18px]" />
+                  <Image src={socialIcons[link.label]} alt="" width={18} height={18} className="h-4.5 w-4.5" />
                 ) : null}
                 {link.label}
               </a>

@@ -9,7 +9,7 @@ const socialIcons: Record<string, string> = {
 export function Contact() {
   return (
     <section id="contact" className="bg-primary pt-24 text-background">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-20 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:px-8">
         <div>
           <p className="w-fit rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-gray-200">
             Open to internship opportunities

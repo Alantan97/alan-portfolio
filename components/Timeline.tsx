@@ -3,7 +3,7 @@ import { experience } from "@/data/portfolio";
 export function Timeline() {
   return (
     <section id="experience" className="bg-background py-20">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-sm font-bold uppercase text-accent">Experience</p>
           <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Activities and experience.</h2>
