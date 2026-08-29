@@ -72,7 +72,6 @@ export function Navbar() {
   }, [pathname]);
 
   const isHomePage = pathname === "/";
-  const isProjectsPage = pathname.startsWith("/projects");
 
   const scrollToTop = (event: MouseEvent<HTMLAnchorElement>) => {
     if (!isHomePage) {
@@ -129,7 +128,7 @@ export function Navbar() {
               href={item.href}
               onClick={scrollToSection(item.sectionId)}
               className={`rounded-full px-3 py-2 text-sm font-medium transition hover:bg-accent/5 hover:text-accent ${
-                (isHomePage && activeSection === item.sectionId) || (isProjectsPage && item.sectionId === "projects")
+                isHomePage && activeSection === item.sectionId
                   ? "bg-accent/10 text-accent"
                   : "text-secondary"
               }`}

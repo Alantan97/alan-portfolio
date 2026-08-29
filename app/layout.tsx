@@ -3,8 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Alan Portfolio",
-  description:
-    "A clean, responsive portfolio template for a university Software Engineering student applying for internships.",
+  description:""
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

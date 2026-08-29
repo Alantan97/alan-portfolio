@@ -1,12 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { KeyboardEvent } from "react";
 import type { Project } from "@/data/projects";
 
 type ProjectCardProps = {
   project: Project;
   featured?: boolean;
-  onOpen?: (project: Project) => void;
+  onOpen: (project: Project) => void;
 };
 
 export function ProjectCard({ project, featured = false, onOpen }: ProjectCardProps) {
@@ -16,7 +15,7 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
   const imageClassName = featured
     ? "h-52 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-60 lg:h-full lg:min-h-64"
     : "h-44 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-52";
-  const openProject = () => onOpen?.(project);
+  const openProject = () => onOpen(project);
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -96,24 +95,16 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
     </>
   );
 
-  if (onOpen) {
-    return (
-      <article
-        className={cardClassName}
-        role="button"
-        tabIndex={0}
-        aria-label={`View ${project.title} project`}
-        onClick={openProject}
-        onKeyDown={handleKeyDown}
-      >
-        {cardContent}
-      </article>
-    );
-  }
-
   return (
-    <Link href={`/projects/${project.slug}`} scroll className={cardClassName} aria-label={`View ${project.title} project`}>
+    <article
+      className={cardClassName}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${project.title} project`}
+      onClick={openProject}
+      onKeyDown={handleKeyDown}
+    >
       {cardContent}
-    </Link>
+    </article>
   );
 }
