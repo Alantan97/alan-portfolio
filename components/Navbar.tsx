@@ -116,7 +116,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-background/95 shadow-[0_4px_14px_rgba(37,99,235,0.10)] backdrop-blur">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-5 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
         <Link href="/" onClick={scrollToTop} className="text-lg font-bold uppercase text-primary">

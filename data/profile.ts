@@ -15,19 +15,59 @@ export type TimelineItem = {
   description: string;
 };
 
+export type EducationItem = {
+  period: string;
+  title: string;
+  institution: string;
+  cgpa: string;
+};
+
 export const profile = {
   name: "Alan Tan",
   title: "Software Engineering Student",
   email: "alant4607@gmail.com",
-  location: "Your City, Country",
-  education: "BSc Software Engineering, Your University",
-  currentFocus: "Building full-stack applications and improving problem-solving skills.",
-  interests: "Web development, mobile apps, UI/UX, and software architecture.",
+  location: "Malaysia",
+  education: "Bachelor of Software Engineering, Sultan Idris Education University",
+  educationItems: [
+    {
+      period: "2021 - 2023",
+      title: "Diploma in Game Design & Development",
+      institution: "Sultan Idris Education University",
+      cgpa: "CGPA 3.92",
+    },
+    {
+      period: "2023 - 2027",
+      title: "Bachelor of Software Engineering",
+      institution: "Sultan Idris Education University",
+      cgpa: "Current CGPA 3.84",
+    },
+  ] satisfies EducationItem[],
+  currentFocus: "Web applications, mobile apps, AI-powered systems, and user experience.",
+  interests: "Software engineering internship opportunities.",
   summary:
     "I build software products with a focus on full-stack development, AI, and user experience.",
-  about:
-    "I am a Software Engineering student interested in creating thoughtful, practical software. I enjoy building practical applications, learning from real user problems, and improving the details that make software easier to use.",
-  profileImage: "/talkkk.jpg",
+  availability: "Open to internship opportunities",
+  focusAreas: [
+    "Full-Stack Development",
+    "AI & Intelligent Systems",
+    "UI/UX Design",
+    "Mobile Development",
+  ],
+  aboutSections: [
+    {
+      label: "01 · Story",
+      text: "I'm a Software Engineering student who enjoys building practical digital products and solving real problems through technology.",
+    },
+    {
+      label: "02 · What I Build",
+      text: "I develop web and mobile applications across full-stack development, AI, and UI/UX, with experience designing interfaces and implementing the systems behind them.",
+    },
+    {
+      label: "03 · How I Work",
+      text: "I learn best by building, experimenting, and improving through real projects. I enjoy turning ideas into working products and understanding how each part of a system fits together.",
+    },
+  ],
+  profileImage: "/speaker.jpg",
   resumeUrl: "#",
 };
 
@@ -66,7 +106,7 @@ export const skills: SkillGroup[] = [
 export const experience: TimelineItem[] = [
   {
     title: "Software Engineering Student",
-    organization: "Your University",
+    organization: "Sultan Idris Education University",
     date: "2024 - Present",
     description:
       "Studying software design, programming, databases, and development practices through coursework and projects.",
