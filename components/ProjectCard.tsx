@@ -33,21 +33,9 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
           height={560}
           className={imageClassName}
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-primary/10 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-background shadow-[0_10px_24px_rgba(37,99,235,0.32)]">
-            <svg
-              aria-hidden="true"
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
+        <div className="absolute inset-0 flex items-center justify-center bg-primary/25 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
+          <span className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 text-sm font-bold text-accent shadow-[0_8px_18px_rgba(17,24,39,0.16)]">
+            View Project
           </span>
         </div>
       </div>

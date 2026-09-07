@@ -105,9 +105,9 @@ function ProjectLink({
 
 function ProjectSection({ section }: { section: CaseStudySection }) {
   return (
-    <section className="rounded-3xl bg-accent/5 p-5">
-      <h3 className="text-xl font-bold text-primary">{formatSectionTitle(section.title)}</h3>
-      <div className="mt-3 space-y-3">
+    <section>
+      <h3 className="text-lg font-semibold text-primary">{formatSectionTitle(section.title)}</h3>
+      <div className="mt-3 space-y-2">
         {section.body.map((item) => {
           const text = getBodyItemText(item);
 
@@ -121,7 +121,7 @@ function ProjectSection({ section }: { section: CaseStudySection }) {
 
           return (
             <div key={text} className="flex gap-3 text-base leading-8 text-secondary">
-              <span className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" aria-hidden="true" />
+              <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" aria-hidden="true" />
               <span>{text}</span>
             </div>
           );
@@ -244,7 +244,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
             </div>
 
-            <div className="mt-9 space-y-8">
+            <div className="mt-9 space-y-8 border-y border-border py-8">
               {project.sections.map((section) => {
                 const sectionTitle = section.title.toLowerCase();
 

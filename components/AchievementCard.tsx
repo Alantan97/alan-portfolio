@@ -3,21 +3,34 @@ import type { Achievement } from "@/data/achievements";
 
 type AchievementCardProps = {
   achievement: Achievement;
+  onImageOpen?: (achievement: Achievement) => void;
 };
 
-export function AchievementCard({ achievement }: AchievementCardProps) {
+export function AchievementCard({ achievement, onImageOpen }: AchievementCardProps) {
   const content = (
     <article className="group h-full rounded-3xl border border-transparent bg-background p-7 shadow-[0_6px_14px_rgba(37,99,235,0.16)] transition hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_10px_22px_rgba(37,99,235,0.22)]">
       {achievement.image ? (
-        <div className="mb-5 overflow-hidden rounded-md">
+        <button
+          type="button"
+          onClick={() => onImageOpen?.(achievement)}
+          className="relative mb-5 block w-full overflow-hidden rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+          aria-label={`Open ${achievement.title.replace("\n", " ")} image`}
+        >
           <Image
             src={achievement.image}
             alt={`${achievement.title} visual`}
             width={640}
             height={360}
-            className="aspect-video w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+            className={`aspect-video w-full object-cover transition duration-300 group-hover:scale-[1.03] ${
+              achievement.imagePosition ?? "object-center"
+            }`}
           />
-        </div>
+          <span className="absolute inset-0 flex items-center justify-center bg-primary/25 opacity-0 transition group-hover:opacity-100 group-focus-within:opacity-100">
+            <span className="rounded-full bg-background px-4 py-2 text-sm font-bold text-accent shadow-[0_8px_18px_rgba(17,24,39,0.16)]">
+              View Image
+            </span>
+          </span>
+        </button>
       ) : (
         <div className="mb-5 flex aspect-video w-full items-center justify-center rounded-md bg-accent/5">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
@@ -50,7 +63,7 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
         <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
           <p className="text-lg font-semibold leading-tight text-accent">{achievement.organization}</p>
           {achievement.place ? (
-            <p className="max-w-32 text-sm font-semibold leading-tight text-primary sm:text-right">{achievement.place}</p>
+            <p className="max-w-40 text-sm font-semibold leading-tight text-primary sm:text-right">{achievement.place}</p>
           ) : null}
         </div>
       </div>

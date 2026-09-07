@@ -614,7 +614,7 @@ export const projects: Project[] = [
   {
     slug: "busted",
     title: "Busted!!",
-    subtitle: "Hyper Casual Workplace Arcade Game",
+    subtitle: "",
     description:
       "A portrait-mode mobile arcade game where players secretly play games at work while avoiding getting caught by their boss.",
     image: "/busted-cover.png",
