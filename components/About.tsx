@@ -3,7 +3,7 @@ import { profile } from "@/data/profile";
 
 export function About() {
   return (
-    <section id="about" className="bg-accent/[0.03] py-24">
+    <section id="about" className="bg-accent/3 py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mb-12 max-w-3xl">
           <h2 className="text-3xl font-bold text-accent sm:text-4xl">About</h2>
