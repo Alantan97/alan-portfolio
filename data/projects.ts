@@ -374,37 +374,105 @@ export const projects: Project[] = [
   {
     slug: "uniparcel",
     title: "UniParcel",
+    subtitle: "Effortless Parcel Management in UPSI",
     description:
-      "A mobile-first campus parcel concept that helps students track parcel status and pickup information.",
-    image: "/projects/project-mobile.svg",
-    platform: "Mobile App",
-    technologies: ["Flutter", "Firebase", "UI/UX"],
-    status: "Project Draft",
-    category: "Campus App",
+      "A web-based parcel management system for UPSI students to submit parcel details, track parcel status, and receive pickup updates more efficiently.",
+    image: "/uni-cover.png",
+    icon: "/uni-icon.png",
+    platform: "Web App",
+    technologies: ["Laravel", "Vite", "PHP", "HTML", "CSS", "JavaScript"],
+    status: "Completed",
+    category: "Management System",
+    github: "#",
+    demo: "https://yeeshuan.online/uniparcel/",
     featured: true,
     sections: [
       {
         title: "Project overview",
         body: [
-          "UniParcel explores a student-centered approach to parcel tracking and collection inside a campus environment.",
+          {
+            text: "UniParcel is a web-based parcel management system designed for Universiti Pendidikan Sultan Idris students. The system helps students submit incoming parcel details, track parcel movement, and know when their parcels are ready for pickup.",
+            variant: "paragraph",
+          },
         ],
       },
       {
-        title: "UI/UX",
+        title: "My role",
         body: [
-          "The interface should make parcel status, pickup location, and required actions visible immediately, especially on mobile screens.",
+          { text: "Proposed the project idea for a campus parcel management system.", variant: "bullet" },
+          { text: "Contributed to the software engineering documentation, including requirements, design, and testing.", variant: "bullet" },
+          { text: "Worked with the team to define student and admin workflows for parcel submission, tracking, and management.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Problem",
+        body: [
+          {
+            text: "Students receive more parcels due to online shopping, but campus parcel handling can become difficult when parcel records, status updates, and pickup readiness are not managed in one organized system.",
+            variant: "paragraph",
+          },
+          { text: "Students need a clearer way to submit and track parcel information.", variant: "bullet" },
+          { text: "Admins need an efficient way to search, update, and manage parcel records.", variant: "bullet" },
+          { text: "Parcel status should be easy to understand so students know when to collect their items.", variant: "bullet" },
+          { text: "Personal parcel information needs secure access through authentication and authorization.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Solution",
+        body: [
+          {
+            text: "UniParcel provides separate student and admin workflows to make campus parcel management more structured and convenient.",
+            variant: "paragraph",
+          },
+          { text: "Students can register, log in, submit parcel details, and track parcel status.", variant: "bullet" },
+          { text: "Admins can view submitted parcels, update parcel status, search records, and manage users.", variant: "bullet" },
+          { text: "The system supports parcel status stages such as Not Yet Arrived, Arrived, Ready to Pick Up, and Received.", variant: "bullet" },
+          { text: "Email notifications inform students when parcel information is updated.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Core features",
+        body: [
+          { text: "User registration and secure login.", variant: "bullet" },
+          { text: "Student dashboard with parcel status summaries.", variant: "bullet" },
+          { text: "Submit new parcel details with tracking number, recipient name, and phone number.", variant: "bullet" },
+          { text: "Track parcel status using a tracking number.", variant: "bullet" },
+          { text: "Edit parcel information to prevent mismatched details.", variant: "bullet" },
+          { text: "Admin dashboard for parcel movement summaries.", variant: "bullet" },
+          { text: "Admin parcel list with update, delete, search, and print functions.", variant: "bullet" },
+          { text: "User profile management and password update.", variant: "bullet" },
+          { text: "Shop management for adding, updating, deleting, and searching shops.", variant: "bullet" },
+          { text: "Export and printing support for parcel records.", variant: "bullet" },
         ],
       },
       {
         title: "Technical implementation",
         body: [
-          "A mobile-first stack can support student notifications, parcel records, status updates, and simple administrative workflows.",
+          { text: "Laravel was used as the main web application framework.", variant: "bullet" },
+          { text: "Vite was used for efficient asset compilation and faster development workflow.", variant: "bullet" },
+          { text: "The system includes authenticated student and admin access.", variant: "bullet" },
+          { text: "Role-based admin functions support parcel, user, and shop management.", variant: "bullet" },
+          { text: "Search, status filtering, export, printing, and email notification features support the parcel management workflow.", variant: "bullet" },
         ],
       },
       {
-        title: "Results",
+        title: "Testing",
         body: [
-          "Use this section later for usability testing, prototype feedback, or measured improvements in collection clarity.",
+          { text: "Registration and login were tested to confirm secure access for registered users.", variant: "bullet" },
+          { text: "Dashboard navigation was tested to ensure users could access parcel submission, tracking, profile, and logout actions.", variant: "bullet" },
+          { text: "Parcel status buttons were tested to confirm each status displays the correct parcel information.", variant: "bullet" },
+          { text: "Search functionality was tested to verify accurate parcel retrieval.", variant: "bullet" },
+          { text: "Export, PDF, Excel, CSV, and printing functions were tested for parcel record output.", variant: "bullet" },
+          { text: "Profile editing, password update, error handling, and logout flows were tested.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Current status",
+        body: [
+          {
+            text: "Completed as a university software engineering group project. The system includes core student and admin features for campus parcel submission, tracking, status updates, record search, user management, notifications, and printing/export workflows.",
+            variant: "paragraph",
+          },
         ],
       },
     ],
@@ -414,70 +482,210 @@ export const projects: Project[] = [
   {
     slug: "memory-of-regret",
     title: "Memory of Regret",
+    subtitle: "",
     description:
-      "An interactive narrative project concept focused on memory, choices, and reflective user experience.",
-    image: "/projects/project-memory.svg",
-    platform: "Interactive Web",
-    technologies: ["JavaScript", "Game Design", "UI/UX"],
-    status: "Project Draft",
-    category: "Interactive Experience",
+      "A 2D side-scrolling adventure game about regret, forgiveness, and personal growth, built around platforming, puzzle-solving, NPC quests, and collectible orbs.",
+    image: "/mor-cover.png",
+    icon: "/mor-icon.png",
+    platform: "Mobile Game",
+    technologies: ["Unity", "C#", "Visual Studio", "Photoshop"],
+    status: "Completed",
+    category: "2D Platformer",
+    github: "#",
+    demo: "#",
     featured: true,
     sections: [
       {
         title: "Project overview",
         body: [
-          "Memory of Regret is an interactive experience where narrative, pacing, and user decisions shape the overall mood of the project.",
+          {
+            text: "Memory of Regret is a 2D side-scrolling adventure game developed as a diploma final year project. The game follows Bay, a small creature who travels through different areas to uncover the truth behind his parents' death and recover three stolen orbs that belonged to them.",
+            variant: "paragraph",
+          },
+          {
+            text: "The project combines platforming, puzzle-solving, NPC quests, combat, animated cutscenes, and an educational storyline about respect, regret, forgiveness, and personal growth.",
+            variant: "paragraph",
+          },
+        ],
+      },
+      {
+        title: "My role",
+        body: [
+          { text: "Game Designer & Developer.", variant: "paragraph" },
+          { text: "Created the game concept, story, characters, levels, mechanics, and interface flow.", variant: "bullet" },
+          { text: "Designed the visual direction, game poster, packaging concept, and 2D art assets.", variant: "bullet" },
+          { text: "Built gameplay mechanics and interaction flow using Unity and C# scripting.", variant: "bullet" },
+          { text: "Documented the game design, storyline, gameplay elements, testing feedback, and improvement plans.", variant: "bullet" },
         ],
       },
       {
         title: "Problem",
         body: [
-          "Narrative projects need interaction patterns that support the story without confusing the user or distracting from key moments.",
+          {
+            text: "Many educational games deliver moral lessons directly, which can feel less engaging for players. Memory of Regret explores how a story-driven game can teach reflection and respect through gameplay, emotional storytelling, and player discovery.",
+            variant: "paragraph",
+          },
+          { text: "The game needed to communicate the value of respecting parents without feeling like a lecture.", variant: "bullet" },
+          { text: "The story, platforming, puzzles, and rewards had to support the same emotional theme.", variant: "bullet" },
+          { text: "The level design needed to balance exploration, action, and narrative pacing.", variant: "bullet" },
         ],
       },
       {
         title: "Solution",
         body: [
-          "The project page can document how story structure, interface decisions, and progression logic work together to create a reflective experience.",
+          {
+            text: "I designed a game where the player's progress is connected to Bay's emotional journey. Each recovered orb unlocks a memory of Bay with his parents, reinforcing the story while rewarding exploration and progress.",
+            variant: "paragraph",
+          },
+          { text: "Built a side-scrolling adventure structure across home, forest, city, and night-time home levels.", variant: "bullet" },
+          { text: "Used collectible orbs as both gameplay objectives and narrative rewards.", variant: "bullet" },
+          { text: "Added NPC quests that guide players toward clues and progression items.", variant: "bullet" },
+          { text: "Included platforming, enemy encounters, and boss battles to keep the experience interactive.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Core features",
+        body: [
+          { text: "2D side-scrolling exploration with flat/cartoon-style visuals.", variant: "bullet" },
+          { text: "Story-driven quest about Bay uncovering the truth behind his parents' death.", variant: "bullet" },
+          { text: "Three collectible orbs that unlock memories and drive the emotional progression.", variant: "bullet" },
+          { text: "NPC quests involving items such as honey and a guitar.", variant: "bullet" },
+          { text: "Puzzle-platforming challenges including keys, boxes, obstacles, and unlockable paths.", variant: "bullet" },
+          { text: "Simple combat where the player defeats enemies by jumping on them.", variant: "bullet" },
+          { text: "Boss battle moments at major story points.", variant: "bullet" },
+          { text: "Menus, HUD, dialogue box, movement controls, and pause interface.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Game design",
+        body: [
+          {
+            text: "The game was designed around a moderate pacing structure, moving between slower exploration moments and faster action or combat sequences. This allowed the story to unfold gradually while still giving players active challenges.",
+            variant: "paragraph",
+          },
+          { text: "Target audience: players aged 10 and above.", variant: "bullet" },
+          { text: "Genre: role-playing / puzzle-platformer adventure.", variant: "bullet" },
+          { text: "Art style: simplified 2D flat visual style inspired by cartoon and comic-like presentation.", variant: "bullet" },
+          { text: "Main environments: home, forest, city, and home at night.", variant: "bullet" },
+          { text: "Unique selling points: educational storyline, animated cutscenes, and NPC quests.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Technical implementation",
+        body: [
+          { text: "Unity Engine was used to build the game and implement gameplay mechanics.", variant: "bullet" },
+          { text: "C# scripting in Visual Studio was used for player control, interactions, and game logic.", variant: "bullet" },
+          { text: "Adobe Photoshop was used to design visual assets and artwork.", variant: "bullet" },
+          { text: "Adobe After Effects was used for animated cutscene work.", variant: "bullet" },
+          { text: "The game was planned for Android and PC compatibility based on the project specifications.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Testing",
+        body: [
+          { text: "The game was tested for bugs, performance issues, platform limitations, user experience, balancing, and time constraints.", variant: "bullet" },
+          { text: "Positive feedback highlighted the art style, soundtrack, rewarding gameplay, engaging story, and moral value of the narrative.", variant: "bullet" },
+          { text: "Improvement feedback pointed to the need for stronger level design and more creative level ideas.", variant: "bullet" },
+          { text: "Testing and optimization were identified as important steps before release, especially for performance across devices.", variant: "bullet" },
         ],
       },
       {
         title: "Challenges",
         body: [
-          "Potential challenges include branching content, state management, pacing, and balancing technical constraints with the desired emotional tone.",
+          { text: "Balancing story, moral message, and gameplay so the experience stayed engaging.", variant: "bullet" },
+          { text: "Designing levels that supported exploration, puzzles, combat, and story progression.", variant: "bullet" },
+          { text: "Managing art, sound, animation, interface, and development work within the project timeline.", variant: "bullet" },
+          { text: "Improving compatibility and performance for different target devices.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Current status",
+        body: [
+          {
+            text: "Completed as a Diploma in Game Design & Development final year project. The project includes the game concept, story, gameplay mechanics, interface design, poster, packaging concept, testing feedback, and documented improvement suggestions.",
+            variant: "paragraph",
+          },
         ],
       },
     ],
   },
   
+  //Busted!!
   {
-    slug: "student-management-dashboard",
-    title: "Student Management Dashboard",
+    slug: "busted",
+    title: "Busted!!",
+    subtitle: "Hyper Casual Workplace Arcade Game",
     description:
-      "A dashboard concept for organizing student records, academic information, and simple administrative workflows.",
-    image: "/projects/project-api.svg",
-    platform: "Web App",
-    technologies: ["React", "TypeScript", "UI/UX"],
-    status: "Project Draft",
-    category: "Dashboard",
+      "A portrait-mode mobile arcade game where players secretly play games at work while avoiding getting caught by their boss.",
+    image: "/busted-cover.png",
+    icon: "/busted-icon.png",
+    platform: "Mobile Game",
+    technologies: ["Unity", "C#", "Visual Studio", "Photoshop", "After Effects", "Game Design"],
+    status: "Completed",
+    category: "Hyper Casual",
+    github: "#",
+    demo: "#",
     featured: true,
     sections: [
       {
         title: "Project overview",
         body: [
-          "This project explores how student-related information can be organized into a clear dashboard for faster review and management.",
+          {
+            text: "Busted!! is a hyper casual mobile arcade game where players take on the role of a worker trying to play games on their computer without getting caught by their boss. The game is played in portrait mode, with the player shown from a first-person cubicle view facing their computer screen.",
+            variant: "paragraph",
+          },
         ],
       },
       {
-        title: "Problem",
+        title: "Objective",
         body: [
-          "Administrative interfaces can become difficult to scan when records, actions, and status information are spread across multiple pages.",
+          {
+            text: "The goal of Busted!! is to create a quick, funny, and engaging mobile experience that uses simple tap-and-swipe interactions. The game is designed to boost workplace-themed entertainment through a light stealth mechanic where players must react quickly, avoid the boss, and keep the game session going.",
+            variant: "paragraph",
+          },
         ],
       },
       {
-        title: "Solution",
+        title: "Core features",
         body: [
-          "The dashboard groups important information into simple sections so users can review records and actions more efficiently.",
+          { text: "Portrait-mode mobile gameplay designed for quick sessions.", variant: "bullet" },
+          { text: "First-person cubicle view that places the player at a workplace computer.", variant: "bullet" },
+          { text: "Tap and swipe interactions for simple mobile control.", variant: "bullet" },
+          { text: "Boss-avoidance gameplay where the player must react before getting caught.", variant: "bullet" },
+          { text: "Hyper casual structure focused on fast, repeatable, and easy-to-understand play.", variant: "bullet" },
+          { text: "Workplace theme with a humorous sneaking-game concept.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Game design",
+        body: [
+          { text: "Genre: hyper casual / arcade.", variant: "bullet" },
+          { text: "Target audience: players aged 10 years old and above.", variant: "bullet" },
+          { text: "Platform: mobile / Google Play Store.", variant: "bullet" },
+          { text: "Interaction: tap and swipe.", variant: "bullet" },
+          {
+            text: "The gameplay concept is built around tension and timing, where players balance the fun of sneaking in a game session with the risk of being caught.",
+            variant: "paragraph",
+          },
+        ],
+      },
+      {
+        title: "Technical implementation",
+        body: [
+          { text: "Unity was used as the main game development engine.", variant: "bullet" },
+          { text: "C# scripting was used for gameplay interactions, player input, and game logic.", variant: "bullet" },
+          { text: "Visual Studio was used for scripting and development workflow.", variant: "bullet" },
+          { text: "Photoshop was used for visual assets and interface graphics.", variant: "bullet" },
+          { text: "After Effects was used for animation and motion-related assets where needed.", variant: "bullet" },
+        ],
+      },
+      {
+        title: "Current status",
+        body: [
+          {
+            text: "Completed as a mobile game project concept focused on simple controls, humorous workplace gameplay, and short-session arcade engagement.",
+            variant: "paragraph",
+          },
         ],
       },
     ],
