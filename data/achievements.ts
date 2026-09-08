@@ -47,8 +47,8 @@ export const achievements: Achievement[] = [
     image: "/mos 3rd.jpg",
   },
   {
-    title: "#CHAMPTALK\nStars Are Born: From Champion to Champion",
-    organization: "Panelist · MCES 2025",
+    title: "Micro-Credentials Education Summit 2025",
+    organization: "Panelist · National",
     place: "University of Cyberjaya",
     year: "2025",
     description:
@@ -56,8 +56,8 @@ export const achievements: Achievement[] = [
     image: "/talk1.jpeg",
   },
   {
-    title: "Journey to Champion",
-    organization: "Panelist · Champion's Launchpad",
+    title: "Champion's Launchpad",
+    organization: "Panelist · National",
     place: "Sunway University",
     year: "2025",
     description:
@@ -66,8 +66,8 @@ export const achievements: Achievement[] = [
     imagePosition: "object-[50%_0%]",
   },
   {
-    title: "Vision to Victory: Shaping Creative Arena",
-    organization: "Panelist · MYDCF",
+    title: "Malaysia Digital Content Festival",
+    organization: "Panelist · National",
     place: "Kuala Lumpur",
     year: "2024",
     description:
@@ -76,8 +76,8 @@ export const achievements: Achievement[] = [
     imagePosition: "object-[50%_80%]",
   },
   {
-    title: "Adobe Firely and Adobe Express",
-    organization: "Demonstrator · Adobe Creative Connect",
+    title: "Adobe Creative Connect",
+    organization: "Demonstrator · National",
     place: "CCEC Nexus",
     year: "2026",
     description:

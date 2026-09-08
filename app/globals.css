@@ -90,14 +90,6 @@ section {
   background: rgba(29, 78, 216, 0.7);
 }
 
-.achievements-page-next {
-  animation: achievements-page-next-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.achievements-page-previous {
-  animation: achievements-page-previous-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
 @keyframes modal-backdrop-in {
   from {
     opacity: 0;
@@ -105,30 +97,6 @@ section {
 
   to {
     opacity: 1;
-  }
-}
-
-@keyframes achievements-page-next-in {
-  from {
-    opacity: 0;
-    transform: translateX(34px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes achievements-page-previous-in {
-  from {
-    opacity: 0;
-    transform: translateX(-34px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 
@@ -165,9 +133,7 @@ section {
   .scroll-reveal,
   .project-modal-backdrop,
   .project-modal-panel,
-  .project-modal-item,
-  .achievements-page-next,
-  .achievements-page-previous {
+  .project-modal-item {
     animation: none;
     opacity: 1;
     transform: none;

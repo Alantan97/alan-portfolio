@@ -6,14 +6,25 @@ type AchievementCardProps = {
   onImageOpen?: (achievement: Achievement) => void;
 };
 
+function getAchievementResultParts(result: string) {
+  const [rank, ...levelParts] = result.split("·").map((part) => part.trim());
+
+  return {
+    rank,
+    level: levelParts.join(" · "),
+  };
+}
+
 export function AchievementCard({ achievement, onImageOpen }: AchievementCardProps) {
+  const { rank, level } = getAchievementResultParts(achievement.organization);
+
   const content = (
-    <article className="group h-full rounded-3xl border border-transparent bg-background p-7 shadow-[0_6px_14px_rgba(37,99,235,0.16)] transition hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_10px_22px_rgba(37,99,235,0.22)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-transparent bg-background shadow-[0_5px_12px_rgba(37,99,235,0.18)] transition hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_8px_16px_rgba(37,99,235,0.22)]">
       {achievement.image ? (
         <button
           type="button"
           onClick={() => onImageOpen?.(achievement)}
-          className="relative mb-5 block w-full overflow-hidden rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
+          className="relative m-3 mb-0 block overflow-hidden rounded-[1.35rem] bg-accent/10 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
           aria-label={`Open ${achievement.title.replace("\n", " ")} image`}
         >
           <Image
@@ -21,7 +32,7 @@ export function AchievementCard({ achievement, onImageOpen }: AchievementCardPro
             alt={`${achievement.title} visual`}
             width={640}
             height={360}
-            className={`aspect-video w-full object-cover transition duration-300 group-hover:scale-[1.03] ${
+            className={`h-44 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-52 ${
               achievement.imagePosition ?? "object-center"
             }`}
           />
@@ -32,7 +43,7 @@ export function AchievementCard({ achievement, onImageOpen }: AchievementCardPro
           </span>
         </button>
       ) : (
-        <div className="mb-5 flex aspect-video w-full items-center justify-center rounded-md bg-accent/5">
+        <div className="m-3 mb-0 flex h-44 items-center justify-center rounded-[1.35rem] bg-accent/5 sm:h-52">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
             <svg
               aria-hidden="true"
@@ -54,20 +65,35 @@ export function AchievementCard({ achievement, onImageOpen }: AchievementCardPro
           </div>
         </div>
       )}
-      <div>
-        <div className="flex items-start justify-between gap-5">
-          <h3 className="whitespace-pre-line text-xl font-bold text-primary transition group-hover:text-accent">{achievement.title}</h3>
-          <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">{achievement.year}</span>
-        </div>
-
-        <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
-          <p className="text-lg font-semibold leading-tight text-accent">{achievement.organization}</p>
-          {achievement.place ? (
-            <p className="max-w-40 text-sm font-semibold leading-tight text-primary sm:text-right">{achievement.place}</p>
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex items-start justify-between gap-4">
+          <p className="text-2xl font-bold leading-tight text-accent transition group-hover:text-accent-hover">
+            {rank}
+          </p>
+          {level ? (
+            <p className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-sm font-semibold leading-tight text-accent">
+              {level}
+            </p>
           ) : null}
         </div>
+
+        <h3 className="mt-3 whitespace-pre-line text-lg font-semibold leading-snug text-primary transition group-hover:text-accent">
+          {achievement.title}
+        </h3>
+
+        <div className="mt-auto flex items-end justify-between gap-4 pt-5">
+          {achievement.place ? (
+            <p className="w-fit rounded-full bg-accent/5 px-3 py-1 text-sm font-semibold leading-tight text-secondary">
+              {achievement.place}
+            </p>
+          ) : (
+            <span aria-hidden="true" />
+          )}
+          <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
+            {achievement.year}
+          </span>
+        </div>
       </div>
-      <p className="mt-4 text-base leading-8 text-secondary">{achievement.description}</p>
     </article>
   );
 

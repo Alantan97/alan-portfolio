@@ -394,7 +394,7 @@ export const projects: Project[] = [
     status: "Completed",
     category: "Management System",
     github: "#",
-    demo: "https://yeeshuan.online/uniparcel/",
+    demo: "#",
     featured: true,
     sections: [
       {

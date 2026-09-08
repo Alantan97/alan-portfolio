@@ -57,7 +57,10 @@ const iconStyles: Record<string, string> = {
   APK: "brightness-0 invert",
 };
 
-function ProjectLinkIcon({ label }: { label: string }) {
+const unavailableLinkStyle =
+  "cursor-not-allowed border border-border bg-accent/5 text-secondary opacity-60";
+
+function ProjectLinkIcon({ label, unavailable = false }: { label: string; unavailable?: boolean }) {
   if (label === "Demo") {
     return (
       <svg
@@ -79,10 +82,26 @@ function ProjectLinkIcon({ label }: { label: string }) {
   }
 
   if (label === "APK") {
-    return <Image src={linkIcons[label]} alt="" width={18} height={10} className={`h-auto w-4 object-contain ${iconStyles[label]}`} />;
+    return (
+      <Image
+        src={linkIcons[label]}
+        alt=""
+        width={18}
+        height={10}
+        className={`h-auto w-4 object-contain ${unavailable ? "brightness-0 opacity-70" : iconStyles[label]}`}
+      />
+    );
   }
 
-  return <Image src={linkIcons[label]} alt="" width={16} height={16} className={`h-4 w-4 ${iconStyles[label]}`} />;
+  return (
+    <Image
+      src={linkIcons[label]}
+      alt=""
+      width={16}
+      height={16}
+      className={`h-4 w-4 ${unavailable ? "brightness-0 opacity-70" : iconStyles[label]}`}
+    />
+  );
 }
 
 function ProjectLink({
@@ -92,13 +111,17 @@ function ProjectLink({
   href: string;
   label: string;
 }) {
-  if (!isUsableLink(href)) {
+  const unavailable = !isUsableLink(href);
+
+  if (unavailable) {
     return (
       <button
         type="button"
-        className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition ${linkStyles[label]}`}
+        disabled
+        title={`${label} link unavailable`}
+        className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold ${unavailableLinkStyle}`}
       >
-        <ProjectLinkIcon label={label} />
+        <ProjectLinkIcon label={label} unavailable />
         {label}
       </button>
     );
