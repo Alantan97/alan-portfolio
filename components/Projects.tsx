@@ -5,6 +5,7 @@ import type { Project } from "@/data/projects";
 import { selectedProjects } from "@/data/projects";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
+import { ScrollReveal } from "./ScrollReveal";
 
 export function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
@@ -21,8 +22,10 @@ export function Projects() {
           </div>
         </div>
         <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {selectedProjects.map((project) => (
-            <ProjectCard key={project.title} project={project} onOpen={setActiveProject} />
+          {selectedProjects.map((project, index) => (
+            <ScrollReveal key={project.title} delay={index * 80}>
+              <ProjectCard project={project} onOpen={setActiveProject} />
+            </ScrollReveal>
           ))}
         </div>
       </div>

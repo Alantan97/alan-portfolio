@@ -24,6 +24,7 @@ export type EducationItem = {
 
 export const profile = {
   name: "Alan Tan",
+  nameNav: "Alan",
   title: "Software Engineering Student",
   email: "alant4607@gmail.com",
   location: "Malaysia",
@@ -68,6 +69,7 @@ export const profile = {
     },
   ],
   profileImage: "/speaker.jpg",
+  profile: "/profile4.png",
   resumeUrl: "#",
 };
 

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import type { Achievement } from "@/data/achievements";
 import { achievements } from "@/data/achievements";
 import { AchievementCard } from "./AchievementCard";
+import { ScrollReveal } from "./ScrollReveal";
 
 const achievementsPerPage = 2;
 
@@ -69,12 +70,10 @@ export function Achievements() {
               slideDirection === "next" ? "achievements-page-next" : "achievements-page-previous"
             }`}
           >
-            {visibleAchievements.map((achievement) => (
-              <AchievementCard
-                key={`${achievement.title}-${achievement.year}`}
-                achievement={achievement}
-                onImageOpen={setOpenAchievement}
-              />
+            {visibleAchievements.map((achievement, index) => (
+              <ScrollReveal key={`${achievement.title}-${achievement.year}`} delay={index * 90}>
+                <AchievementCard achievement={achievement} onImageOpen={setOpenAchievement} />
+              </ScrollReveal>
             ))}
           </div>
         </div>

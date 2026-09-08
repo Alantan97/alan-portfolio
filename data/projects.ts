@@ -22,6 +22,8 @@ export type Project = {
   status?: string;
   category?: string;
   github?: string;
+  itch?: string;
+  apk?: string;
   demo?: string;
   featured: boolean;
   sections: CaseStudySection[];
@@ -42,6 +44,9 @@ export const projects: Project[] = [
     status: "In Progress",
     category: "AI",
     featured: true,
+    github: "#",
+    apk: "#",
+    demo: "#",
     sections: [
       {
         title: "Project overview",
@@ -148,6 +153,8 @@ export const projects: Project[] = [
     status: "Completed",
     category: "Management System",
     featured: true,
+    github: "https://github.com/Alantan97/cptyres-system.git",
+    demo: "#",
     sections: [
       {
         title: "Project overview",
@@ -256,6 +263,9 @@ export const projects: Project[] = [
     status: "Completed",
     category: "Travel Community",
     featured: true,
+    github: "https://github.com/ncychannnn/TravelBah-.git",
+    apk: "https://drive.google.com/drive/folders/1zMQnN6bCvEnQxqyavey7FUrqgdqBXEt6?usp=sharing",
+    demo: "#",
     sections: [
       {
         title: "Project overview",
@@ -491,7 +501,8 @@ export const projects: Project[] = [
     technologies: ["Unity", "C#", "Visual Studio", "Photoshop"],
     status: "Completed",
     category: "2D Platformer",
-    github: "#",
+    itch: "https://alantan.itch.io/memory-of-regret",
+    apk: "https://drive.google.com/drive/folders/1V1zlk_0yiKcdmyBtLLLT4Ms1_AhGmALI?usp=sharing",
     demo: "#",
     featured: true,
     sections: [
@@ -623,7 +634,8 @@ export const projects: Project[] = [
     technologies: ["Unity", "C#", "Visual Studio", "Photoshop", "After Effects", "Game Design"],
     status: "Completed",
     category: "Hyper Casual",
-    github: "#",
+    itch: "#",
+    apk: "https://drive.google.com/drive/folders/1xuZRFXmr9zdD3bkof5hSwtt66QkfnCTH?usp=sharing",
     demo: "#",
     featured: true,
     sections: [

@@ -1,4 +1,5 @@
 import { skills } from "@/data/profile";
+import { ScrollReveal } from "./ScrollReveal";
 
 export function Skills() {
   return (
@@ -12,11 +13,11 @@ export function Skills() {
         </div>
 
         <dl className="mt-10 grid gap-x-12 gap-y-8 border-y border-border py-8 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((group) => (
-            <div key={group.category}>
+          {skills.map((group, index) => (
+            <ScrollReveal key={group.category} delay={index * 70}>
               <dt className="text-lg font-semibold text-primary">{group.category}</dt>
               <dd className="mt-2 text-base leading-8 text-secondary">{group.items.join(" • ")}</dd>
-            </div>
+            </ScrollReveal>
           ))}
         </dl>
       </div>

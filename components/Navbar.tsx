@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
+import { profile } from "@/data/profile";
 
 const navItems = [
   { label: "Projects", href: "/#projects", sectionId: "projects" },
@@ -118,8 +120,15 @@ export function Navbar() {
         className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
       >
-        <Link href="/" onClick={scrollToTop} className="text-lg font-bold uppercase text-primary">
-          ALAN
+        <Link href="/" onClick={scrollToTop} className="flex items-center gap-3">
+          <Image
+            src={profile.profile}
+            alt={`${profile.name} portrait`}
+            width={34}
+            height={34}
+            className="h-8.5 w-8.5 rounded-full object-cover ring-2 ring-accent"
+          />
+          <span className="text-lg font-semibold text-primary">{profile.name}</span>
         </Link>
         <div className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (

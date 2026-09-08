@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { type CSSProperties, useEffect } from "react";
 import type { CaseStudyBodyItem, CaseStudySection, Project } from "@/data/projects";
 
 type ProjectModalProps = {
@@ -34,17 +34,27 @@ function getBodyItemVariant(item: CaseStudyBodyItem) {
   return typeof item === "string" ? "bullet" : item.variant;
 }
 
+function modalItemStyle(delay: number): CSSProperties {
+  return { animationDelay: `${delay}ms` };
+}
+
 const linkIcons: Record<string, string> = {
   GitHub: "/github-white.png",
+  "itch.io": "/itchio.png",
+  APK: "/android.png",
 };
 
 const linkStyles: Record<string, string> = {
   GitHub: "bg-accent text-background hover:bg-accent-hover",
+  "itch.io": "bg-accent text-background hover:bg-accent-hover",
+  APK: "bg-accent text-background hover:bg-accent-hover",
   Demo: "border border-accent/20 bg-background text-primary hover:border-accent hover:text-accent",
 };
 
 const iconStyles: Record<string, string> = {
   GitHub: "brightness-0 invert",
+  "itch.io": "brightness-0 invert",
+  APK: "brightness-0 invert",
 };
 
 function ProjectLinkIcon({ label }: { label: string }) {
@@ -68,6 +78,10 @@ function ProjectLinkIcon({ label }: { label: string }) {
     );
   }
 
+  if (label === "APK") {
+    return <Image src={linkIcons[label]} alt="" width={18} height={10} className={`h-auto w-4 object-contain ${iconStyles[label]}`} />;
+  }
+
   return <Image src={linkIcons[label]} alt="" width={16} height={16} className={`h-4 w-4 ${iconStyles[label]}`} />;
 }
 
@@ -75,7 +89,7 @@ function ProjectLink({
   href,
   label,
 }: {
-  href?: string;
+  href: string;
   label: string;
 }) {
   if (!isUsableLink(href)) {
@@ -103,9 +117,17 @@ function ProjectLink({
   );
 }
 
-function ProjectSection({ section }: { section: CaseStudySection }) {
+function ProjectSection({
+  section,
+  animate = true,
+  animationDelay = 0,
+}: {
+  section: CaseStudySection;
+  animate?: boolean;
+  animationDelay?: number;
+}) {
   return (
-    <section>
+    <section className={animate ? "project-modal-item" : undefined} style={animate ? modalItemStyle(animationDelay) : undefined}>
       <h3 className="text-lg font-semibold text-primary">{formatSectionTitle(section.title)}</h3>
       <div className="mt-3 space-y-2">
         {section.body.map((item) => {
@@ -160,6 +182,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   const problemSection = project.sections.find((section) => section.title.toLowerCase() === "problem");
   const solutionSection = project.sections.find((section) => section.title.toLowerCase() === "solution");
   const headerVisual = project.icon ?? project.image;
+  const projectActions = [
+    project.github ? { href: project.github, label: "GitHub" } : null,
+    project.itch ? { href: project.itch, label: "itch.io" } : null,
+    project.apk ? { href: project.apk, label: "APK" } : null,
+    project.demo ? { href: project.demo, label: "Demo" } : null,
+  ].filter((action): action is { href: string; label: string } => Boolean(action));
+  const visibleSections = project.sections.filter((section) => {
+    const sectionTitle = section.title.toLowerCase();
+    return !(problemSection && solutionSection && sectionTitle === "solution");
+  });
 
   return (
     <div
@@ -197,26 +229,28 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="px-7 py-6 sm:px-10 sm:py-10">
             <div className="grid gap-8 md:grid-cols-[1fr_220px] md:items-start">
               <div>
-                <div className="flex flex-wrap gap-2">
-                  {project.platform ? (
-                    <span className="w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
-                      {project.platform}
-                    </span>
-                  ) : null}
-                  {project.category ? (
-                    <span className="w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
-                      {project.category}
-                    </span>
+                <div className="project-modal-item" style={modalItemStyle(80)}>
+                  <div className="flex flex-wrap gap-2">
+                    {project.platform ? (
+                      <span className="w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
+                        {project.platform}
+                      </span>
+                    ) : null}
+                    {project.category ? (
+                      <span className="w-fit rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
+                        {project.category}
+                      </span>
+                    ) : null}
+                  </div>
+                  <h2 id="project-modal-title" className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl">
+                    {project.title}
+                  </h2>
+                  {project.subtitle ? (
+                    <p className="mt-2 text-lg font-bold text-primary sm:text-xl">{project.subtitle}</p>
                   ) : null}
                 </div>
-                <h2 id="project-modal-title" className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl">
-                  {project.title}
-                </h2>
-                {project.subtitle ? (
-                  <p className="mt-2 text-lg font-bold text-primary sm:text-xl">{project.subtitle}</p>
-                ) : null}
 
-                <div className="mt-7 flex flex-wrap gap-2">
+                <div className="project-modal-item mt-7 flex flex-wrap gap-2" style={modalItemStyle(150)}>
                   {project.technologies.map((technology) => (
                     <span key={technology} className="rounded-full bg-accent/5 px-3 py-1 text-xs font-semibold text-secondary">
                       {technology}
@@ -224,13 +258,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   ))}
                 </div>
 
-                <div className="mt-7 flex flex-wrap gap-2">
-                  <ProjectLink href={project.github} label="GitHub" />
-                  <ProjectLink href={project.demo} label="Demo" />
-                </div>
+                {projectActions.length ? (
+                  <div className="project-modal-item mt-7 flex flex-wrap gap-2" style={modalItemStyle(220)}>
+                    {projectActions.map((action) => (
+                      <ProjectLink key={action.label} href={action.href} label={action.label} />
+                    ))}
+                  </div>
+                ) : null}
               </div>
 
-              <div className="flex justify-start md:justify-end">
+              <div className="project-modal-item flex justify-start md:justify-end" style={modalItemStyle(140)}>
                 <div className="flex h-36 w-36 items-center justify-center overflow-hidden rounded-3xl bg-accent/5 sm:h-44 sm:w-44">
                   <Image
                     src={headerVisual}
@@ -245,23 +282,24 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
 
             <div className="mt-9 space-y-8 border-y border-border py-8">
-              {project.sections.map((section) => {
+              {visibleSections.map((section, index) => {
                 const sectionTitle = section.title.toLowerCase();
+                const animationDelay = 300 + index * 90;
 
                 if (problemSection && solutionSection && sectionTitle === "problem") {
                   return (
-                    <div key="problem-solution" className="grid gap-8 md:grid-cols-2">
-                      <ProjectSection section={problemSection} />
-                      <ProjectSection section={solutionSection} />
+                    <div
+                      key="problem-solution"
+                      className="project-modal-item grid gap-8 md:grid-cols-2"
+                      style={modalItemStyle(animationDelay)}
+                    >
+                      <ProjectSection section={problemSection} animate={false} />
+                      <ProjectSection section={solutionSection} animate={false} />
                     </div>
                   );
                 }
 
-                if (problemSection && solutionSection && sectionTitle === "solution") {
-                  return null;
-                }
-
-                return <ProjectSection key={section.title} section={section} />;
+                return <ProjectSection key={section.title} section={section} animationDelay={animationDelay} />;
               })}
             </div>
           </div>

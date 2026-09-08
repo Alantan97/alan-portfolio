@@ -39,12 +39,32 @@ section {
   scroll-margin-top: 72px;
 }
 
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 620ms ease,
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
 .project-modal-backdrop {
   animation: modal-backdrop-in 180ms ease-out both;
 }
 
 .project-modal-panel {
   animation: modal-panel-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.project-modal-item {
+  animation: modal-item-in 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
 }
 
 .project-modal-scroll {
@@ -121,5 +141,36 @@ section {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modal-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scroll-reveal,
+  .project-modal-backdrop,
+  .project-modal-panel,
+  .project-modal-item,
+  .achievements-page-next,
+  .achievements-page-previous {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
