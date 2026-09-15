@@ -9,14 +9,17 @@ import { profile } from "@/data/profile";
 
 const navItems = [
   { label: "Projects", href: "/#projects", sectionId: "projects" },
+  { label: "Experience", href: "/#experience", sectionId: "experience" },
   { label: "Skills", href: "/#skills", sectionId: "skills" },
   { label: "Achievements", href: "/#achievements", sectionId: "achievements" },
   { label: "About", href: "/#about", sectionId: "about" },
+  { label: "Contact", href: "/#contact", sectionId: "contact" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("");
+  const [isAtTop, setIsAtTop] = useState(true);
   const manualScrollTimeout = useRef<number | null>(null);
   const isManualScroll = useRef(false);
 
@@ -25,7 +28,7 @@ export function Navbar() {
       return;
     }
 
-    const sectionIds = ["projects", "skills", "achievements", "about", "contact"];
+    const sectionIds = ["projects", "experience", "skills", "achievements", "about", "contact"];
     let animationFrame = 0;
 
     const updateActiveSection = () => {
@@ -59,8 +62,14 @@ export function Navbar() {
       animationFrame = window.requestAnimationFrame(updateActiveSection);
     };
 
+    const updateNavbarSurface = () => {
+      setIsAtTop(window.scrollY <= 8);
+    };
+
     requestActiveSectionUpdate();
+    updateNavbarSurface();
     window.addEventListener("scroll", requestActiveSectionUpdate, { passive: true });
+    window.addEventListener("scroll", updateNavbarSurface, { passive: true });
     window.addEventListener("hashchange", requestActiveSectionUpdate);
 
     return () => {
@@ -69,6 +78,7 @@ export function Navbar() {
         window.clearTimeout(manualScrollTimeout.current);
       }
       window.removeEventListener("scroll", requestActiveSectionUpdate);
+      window.removeEventListener("scroll", updateNavbarSurface);
       window.removeEventListener("hashchange", requestActiveSectionUpdate);
     };
   }, [pathname]);
@@ -115,7 +125,13 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 shadow-[0_4px_14px_rgba(37,99,235,0.10)] backdrop-blur">
+    <header
+      className={`fixed left-0 top-0 z-50 w-full transition duration-300 ${
+        isHomePage && isAtTop
+          ? "bg-transparent shadow-none"
+          : "bg-background/95 shadow-[0_4px_14px_rgba(37,99,235,0.10)] backdrop-blur"
+      }`}
+    >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
@@ -147,11 +163,12 @@ export function Navbar() {
           ))}
         </div>
         <Link
-          href="/#contact"
-          onClick={scrollToSection("contact")}
+          href={profile.resumeUrl}
+          target="_blank"
+          rel="noreferrer"
           className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-background transition hover:bg-accent-hover"
         >
-          Contact
+          Resume
         </Link>
       </nav>
     </header>

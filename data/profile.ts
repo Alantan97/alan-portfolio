@@ -51,11 +51,12 @@ export const profile = {
   ],
   profileImage: "/images/profile/speaker.jpg",
   profile: "/images/profile/profile4.png",
+  resumeUrl: "https://drive.google.com/file/d/1ayT8tptzjWGeCmKrsbMiIP7bBM2MHa_d/view?usp=sharing",
 };
 
 export const socialLinks: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/Alantan97" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/alan-txn" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/alantan-dev" },
 ];
 
 export const skills: SkillGroup[] = [
