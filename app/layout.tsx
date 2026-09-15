@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "Alan Portfolio",
   description: "",
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/icons/brand/favicon.png",
+    shortcut: "/icons/brand/favicon.png",
+    apple: "/icons/brand/favicon.png",
   },
 };
 

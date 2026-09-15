@@ -3,8 +3,8 @@ import { profile, socialLinks } from "@/data/profile";
 import { ScrollReveal } from "./ScrollReveal";
 
 const socialIcons: Record<string, string> = {
-  GitHub: "/github-white.png",
-  LinkedIn: "/linkedin-white.png",
+  GitHub: "/icons/social/github-white.png",
+  LinkedIn: "/icons/social/linkedin-white.png",
 };
 
 export function Contact() {

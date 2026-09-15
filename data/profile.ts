@@ -8,13 +8,6 @@ export type SkillGroup = {
   items: string[];
 };
 
-export type TimelineItem = {
-  title: string;
-  organization: string;
-  date: string;
-  description: string;
-};
-
 export type EducationItem = {
   period: string;
   title: string;
@@ -24,11 +17,8 @@ export type EducationItem = {
 
 export const profile = {
   name: "Alan Tan",
-  nameNav: "Alan",
   title: "Software Engineering Student",
   email: "alant4607@gmail.com",
-  location: "Malaysia",
-  education: "Bachelor of Software Engineering, Sultan Idris Education University",
   educationItems: [
     {
       period: "2021 - 2023",
@@ -43,17 +33,8 @@ export const profile = {
       cgpa: "Current CGPA 3.84",
     },
   ] satisfies EducationItem[],
-  currentFocus: "Web applications, mobile apps, AI-powered systems, and user experience.",
-  interests: "Software engineering internship opportunities.",
   summary:
     "I build software products with a focus on full-stack development, AI, and user experience.",
-  availability: "Open to internship opportunities",
-  focusAreas: [
-    "Full-Stack Development",
-    "AI & Intelligent Systems",
-    "UI/UX Design",
-    "Mobile Development",
-  ],
   aboutSections: [
     {
       label: "01 · Story",
@@ -68,9 +49,8 @@ export const profile = {
       text: "I learn best by building, experimenting, and improving through real projects. I enjoy turning ideas into working products and understanding how each part of a system fits together.",
     },
   ],
-  profileImage: "/speaker.jpg",
-  profile: "/profile4.png",
-  resumeUrl: "#",
+  profileImage: "/images/profile/speaker.jpg",
+  profile: "/images/profile/profile4.png",
 };
 
 export const socialLinks: SocialLink[] = [
@@ -102,29 +82,5 @@ export const skills: SkillGroup[] = [
   {
     category: "Game Development",
     items: ["Unity"],
-  },
-];
-
-export const experience: TimelineItem[] = [
-  {
-    title: "Software Engineering Student",
-    organization: "Sultan Idris Education University",
-    date: "2024 - Present",
-    description:
-      "Studying software design, programming, databases, and development practices through coursework and projects.",
-  },
-  {
-    title: "Committee Member Placeholder",
-    organization: "Student Club or Society",
-    date: "2025 - Present",
-    description:
-      "Replace this with a real activity, leadership role, volunteer work, hackathon team, or technical community involvement.",
-  },
-  {
-    title: "Internship Experience Placeholder",
-    organization: "Company or Organization",
-    date: "Upcoming",
-    description:
-      "Add internship, freelance, part-time, or project-based experience here once available.",
   },
 ];

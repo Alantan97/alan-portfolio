@@ -3,8 +3,8 @@ import { profile, socialLinks } from "@/data/profile";
 import { ScrollReveal } from "./ScrollReveal";
 
 const socialIcons: Record<string, string> = {
-  GitHub: "/github.png",
-  LinkedIn: "/linkedin.png",
+  GitHub: "/icons/social/github.png",
+  LinkedIn: "/icons/social/linkedin.png",
 };
 
 export function Hero() {
@@ -12,7 +12,7 @@ export function Hero() {
     <section
       id="home"
       className="relative overflow-hidden border-b border-border bg-background bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/bg.png')" }}
+      style={{ backgroundImage: "url('/images/backgrounds/bg.png')" }}
     >
       <div className="relative mx-auto flex min-h-[calc(100vh-81px)] max-w-7xl items-center px-5 py-20 sm:px-6 lg:px-8">
         <div className="max-w-3xl">

@@ -39,9 +39,9 @@ function modalItemStyle(delay: number): CSSProperties {
 }
 
 const linkIcons: Record<string, string> = {
-  GitHub: "/github-white.png",
-  "itch.io": "/itchio.png",
-  APK: "/android.png",
+  GitHub: "/icons/social/github-white.png",
+  "itch.io": "/icons/actions/itchio.png",
+  APK: "/icons/actions/android.png",
 };
 
 const linkStyles: Record<string, string> = {
