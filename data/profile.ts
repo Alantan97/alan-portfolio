@@ -60,27 +60,23 @@ export const socialLinks: SocialLink[] = [
 
 export const skills: SkillGroup[] = [
   {
-    category: "Languages",
-    items: ["Python", "C#", "C++", "Dart", "PHP", "SQL", "JavaScript", "TypeScript", "Java"],
+    category: "Programming Languages",
+    items: ["Python", "C#", "C++", "Dart", "PHP", "SQL", "JavaScript", "TypeScript", "Java", "HTML/CSS"],
   },
   {
-    category: "Frontend & Backend",
-    items: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS", "Flutter", "Laravel"],
+    category: "Frameworks & Libraries",
+    items: ["React", "Next.js", "Flutter", "Laravel", "Tailwind CSS"],
   },
   {
-    category: "AI & Data",
+    category: "Machine Learning & Data",
     items: ["Scikit-learn", "LightGBM", "DEAP", "Pandas", "NumPy"],
   },
   {
-    category: "Databases",
+    category: "Databases & Cloud",
     items: ["MySQL", "Firebase"],
   },
   {
-    category: "Dev & Design Tools",
-    items: ["Git", "GitHub", "Figma", "Photoshop"],
-  },
-  {
-    category: "Game Development",
-    items: ["Unity"],
+    category: "Developer & Design Tools",
+    items: ["Git", "GitHub", "VS Code", "Figma", "Photoshop", "Unity"],
   },
 ];
