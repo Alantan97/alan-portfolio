@@ -16,7 +16,7 @@ export type EducationItem = {
 };
 
 export const profile = {
-  name: "Alan Tan",
+  name: "Alan",
   title: "Software Engineering Student",
   email: "alant4607@gmail.com",
   educationItems: [
