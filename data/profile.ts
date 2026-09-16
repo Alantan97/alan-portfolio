@@ -22,7 +22,7 @@ export const profile = {
   educationItems: [
     {
       period: "2021 - 2023",
-      title: "Diploma in Game Design & Development",
+      title: "Diploma in Game Design and Development",
       institution: "Sultan Idris Education University",
       cgpa: "CGPA 3.92",
     },

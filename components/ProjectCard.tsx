@@ -68,17 +68,10 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
             ) : null}
           </div>
         </div>
-        <p className="mt-4 text-base leading-8 text-secondary">{project.description}</p>
-        <div className="mt-auto flex flex-wrap gap-2 pt-5">
-          {project.technologies.map((technology) => (
-            <span
-              key={technology}
-              className="rounded-full bg-accent/5 px-3 py-1 text-xs font-semibold text-secondary transition group-hover:bg-accent/10 group-hover:text-accent group-focus-visible:bg-accent/10 group-focus-visible:text-accent"
-            >
-              {technology}
-            </span>
-          ))}
-        </div>
+        <p className="mt-4 text-base leading-7 text-secondary">{project.description}</p>
+        <p className="mt-auto pt-5 text-sm font-medium leading-7 text-secondary transition group-hover:text-accent group-focus-visible:text-accent">
+          {project.technologies.join(" • ")}
+        </p>
       </div>
     </>
   );
