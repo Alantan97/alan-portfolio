@@ -20,6 +20,9 @@ export function Navbar() {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("");
   const [isAtTop, setIsAtTop] = useState(true);
+  const [highlightStyle, setHighlightStyle] = useState({ left: 0, width: 0, opacity: 0 });
+  const navItemsRef = useRef<HTMLDivElement | null>(null);
+  const navLinkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
   const manualScrollTimeout = useRef<number | null>(null);
   const isManualScroll = useRef(false);
 
@@ -85,6 +88,39 @@ export function Navbar() {
 
   const isHomePage = pathname === "/";
 
+  useEffect(() => {
+    const navItemsElement = navItemsRef.current;
+    const activeLinkElement = navLinkRefs.current[activeSection];
+
+    if (!isHomePage || !activeSection || !navItemsElement || !activeLinkElement) {
+      setHighlightStyle((currentStyle) => ({ ...currentStyle, opacity: 0 }));
+      return;
+    }
+
+    const updateHighlight = () => {
+      const navItemsRect = navItemsElement.getBoundingClientRect();
+      const activeLinkRect = activeLinkElement.getBoundingClientRect();
+
+      setHighlightStyle({
+        left: activeLinkRect.left - navItemsRect.left,
+        width: activeLinkRect.width,
+        opacity: 1,
+      });
+    };
+
+    updateHighlight();
+
+    const resizeObserver = new ResizeObserver(updateHighlight);
+    resizeObserver.observe(navItemsElement);
+    resizeObserver.observe(activeLinkElement);
+    window.addEventListener("resize", updateHighlight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateHighlight);
+    };
+  }, [activeSection, isHomePage]);
+
   const scrollToTop = (event: MouseEvent<HTMLAnchorElement>) => {
     if (!isHomePage) {
       return;
@@ -146,15 +182,27 @@ export function Navbar() {
           />
           <span className="text-lg font-semibold text-primary">{profile.name}</span>
         </Link>
-        <div className="hidden items-center gap-1 md:flex">
+        <div ref={navItemsRef} className="relative hidden items-center gap-1 md:flex">
+          <span
+            aria-hidden="true"
+            className="absolute top-0 h-full rounded-full bg-accent/10 transition-[left,width,opacity] duration-300 ease-out"
+            style={{
+              left: highlightStyle.left,
+              width: highlightStyle.width,
+              opacity: highlightStyle.opacity,
+            }}
+          />
           {navItems.map((item) => (
             <Link
               key={item.href}
+              ref={(element) => {
+                navLinkRefs.current[item.sectionId] = element;
+              }}
               href={item.href}
               onClick={scrollToSection(item.sectionId)}
-              className={`rounded-full px-3 py-2 text-sm font-medium transition hover:bg-accent/5 hover:text-accent ${
+              className={`relative z-10 rounded-full px-3 py-2 text-sm font-medium transition hover:text-accent ${
                 isHomePage && activeSection === item.sectionId
-                  ? "bg-accent/10 text-accent"
+                  ? "text-accent"
                   : "text-secondary"
               }`}
             >
