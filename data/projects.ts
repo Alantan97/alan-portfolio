@@ -135,7 +135,7 @@ export const projects: Project[] = [
     featured: true,
     github: "https://github.com/Alantan97/cptyres-system.git",
     video: {
-      src: "https://youtu.be/4SNVk_IKnOE?si=9ob7grQHzZfsdYXS",
+      src: "https://youtu.be/_BQOTaFezgI",
       actionLabel: "Watch Demo",
     },
     sections: [
@@ -284,7 +284,7 @@ export const projects: Project[] = [
     category: "Management System",
     github: "#",
     video: {
-      src: "https://youtu.be/4SNVk_IKnOE?si=9ob7grQHzZfsdYXS",
+      src: "https://youtu.be/P-ncooX2qXY",
       actionLabel: "Watch Demo",
     },
     featured: true,
@@ -350,7 +350,7 @@ export const projects: Project[] = [
     itch: "https://alantan.itch.io/memory-of-regret",
     apk: "https://drive.google.com/drive/folders/1V1zlk_0yiKcdmyBtLLLT4Ms1_AhGmALI?usp=sharing",
     video: {
-      src: "https://youtu.be/4SNVk_IKnOE?si=9ob7grQHzZfsdYXS",
+      src: "https://youtu.be/HZFHHFQFzdg",
       actionLabel: "Watch Trailer",
     },
     featured: true,
