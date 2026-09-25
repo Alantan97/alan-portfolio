@@ -18,7 +18,7 @@ export type EducationItem = {
 export const profile = {
   name: "Alan Tan",
   title: "Software Engineering Student",
-  email: "alant4607@gmail.com",
+  email: "alantan.dev@gmail.com",
   educationItems: [
     {
       period: "2021 - 2023",
