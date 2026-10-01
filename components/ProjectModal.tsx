@@ -341,7 +341,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <div className="project-modal-scroll max-h-[90vh] overflow-y-auto rounded-4xl bg-background shadow-[0_18px_45px_rgba(17,24,39,0.18)]">
           <div className="px-7 py-6 sm:px-10 sm:py-8">
-            <div className="grid gap-6 md:grid-cols-[1fr_220px] md:items-start">
+            <div className="grid grid-cols-[1fr_auto] items-start gap-4 md:grid-cols-[1fr_220px] md:gap-6">
               <div>
                 <div className="project-modal-item" style={modalItemStyle(80)}>
                   <div className="flex flex-wrap gap-2">
@@ -399,8 +399,8 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 ) : null}
               </div>
 
-              <div className="project-modal-item flex justify-start md:justify-end" style={modalItemStyle(140)}>
-                <div className="flex h-36 w-36 items-center justify-center overflow-hidden rounded-3xl bg-accent/5 sm:h-44 sm:w-44">
+              <div className="project-modal-item flex justify-end" style={modalItemStyle(140)}>
+                <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-accent/5 sm:h-24 sm:w-24 md:h-44 md:w-44 md:rounded-3xl">
                   <Image
                     src={headerVisual}
                     alt={`${project.title} icon`}

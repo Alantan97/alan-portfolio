@@ -1,16 +1,17 @@
 import Image from "next/image";
 import { profile } from "@/data/profile";
 import { ScrollReveal } from "./ScrollReveal";
+import { SectionHeading } from "./SectionHeading";
 
 export function About() {
   return (
-    <section id="about" className="bg-background py-24">
+    <section id="about" className="bg-background py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="mb-12 max-w-3xl">
-          <h2 className="text-3xl font-bold text-accent sm:text-4xl">About</h2>
-          <p className="mt-4 text-bold font-semibold leading-8 text-secondary">
-            A little more about how I think, build, and grow as a software engineering student.
-          </p>
+        <div className="mb-10 lg:mb-12">
+          <SectionHeading
+            title="About"
+            description="A little more about how I think, build, and grow as a software engineering student."
+          />
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[320px_1fr] lg:items-stretch xl:grid-cols-[360px_1fr]">

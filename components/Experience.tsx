@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { workExperience } from "@/data/experience";
 import { ScrollReveal } from "./ScrollReveal";
+import { SectionHeading } from "./SectionHeading";
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-accent/3 py-24">
+    <section id="experience" className="bg-accent/3 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="border-b border-border pb-5">
-          <h2 className="text-3xl font-bold text-accent sm:text-4xl">Work Experience</h2>
-        </div>
+        <SectionHeading
+          title="Work Experience"
+          description="Professional experience building and delivering software in a real working environment."
+        />
 
-        <div className="mt-12 space-y-12">
+        <div className="mt-10 space-y-12 lg:mt-12">
           {workExperience.map((experience, index) => {
             const isAlternate = index % 2 === 1;
 

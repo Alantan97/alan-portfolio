@@ -6,9 +6,12 @@ import type { Achievement } from "@/data/achievements";
 import { achievements } from "@/data/achievements";
 import { AchievementCard } from "./AchievementCard";
 import { ScrollReveal } from "./ScrollReveal";
+import { SectionHeading } from "./SectionHeading";
 
 export function Achievements() {
   const [openAchievement, setOpenAchievement] = useState<Achievement | null>(null);
+  const competitionAchievements = achievements.filter((achievement) => achievement.kind === "achievement");
+  const activities = achievements.filter((achievement) => achievement.kind === "activity");
 
   useEffect(() => {
     if (!openAchievement) {
@@ -32,17 +35,32 @@ export function Achievements() {
   }, [openAchievement]);
 
   return (
-    <section id="achievements" className="bg-accent/3 py-24">
+    <section id="achievements" className="bg-accent/3 py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold text-accent sm:text-4xl">Achievements</h2>
-        </div>
+        <SectionHeading
+          title="Achievements"
+          description="Competition results and awards earned through software, design, and creative work."
+        />
         <div className="mt-10 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {achievements.map((achievement, index) => (
+          {competitionAchievements.map((achievement, index) => (
             <ScrollReveal key={`${achievement.title}-${achievement.year}`} delay={index * 80}>
               <AchievementCard achievement={achievement} onImageOpen={setOpenAchievement} />
             </ScrollReveal>
           ))}
+        </div>
+
+        <div className="mt-16 border-t border-border pt-10">
+          <h3 className="text-2xl font-bold text-primary">Activities &amp; Speaking</h3>
+          <p className="mt-3 max-w-2xl text-base leading-8 text-secondary">
+            Talks, panel sessions, and creative technology events where I shared practical experience with others.
+          </p>
+          <div className="mt-8 grid gap-7 md:grid-cols-2">
+            {activities.map((achievement, index) => (
+              <ScrollReveal key={`${achievement.title}-${achievement.year}`} delay={index * 80}>
+                <AchievementCard achievement={achievement} onImageOpen={setOpenAchievement} />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </div>
       {openAchievement?.image ? (

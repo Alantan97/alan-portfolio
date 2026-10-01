@@ -11,28 +11,30 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-border bg-background bg-cover bg-center bg-no-repeat"
+      className="relative overflow-hidden border-b border-border bg-background bg-[length:auto_100%] bg-left-bottom bg-no-repeat lg:bg-cover lg:bg-center"
       style={{ backgroundImage: "url('/images/backgrounds/bg.png')" }}
     >
-      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-5 py-24 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex min-h-[calc(100svh-8rem)] max-w-7xl items-start px-5 pb-14 pt-28 sm:min-h-[calc(100svh-5rem)] sm:px-6 sm:pt-32 lg:min-h-screen lg:items-center lg:px-8 lg:py-24">
         <div className="max-w-3xl">
           <ScrollReveal>
-            <p className="text-2xl font-semibold text-secondary">Hi, I am</p>
+            <p className="text-xl font-semibold text-secondary sm:text-2xl">Hi, I am</p>
           </ScrollReveal>
           <ScrollReveal delay={80}>
-            <h1 className="mt-2 max-w-3xl text-5xl font-bold leading-tight text-primary sm:text-7xl">
+            <h1 className="mt-2 max-w-3xl text-4xl font-bold leading-tight text-primary sm:text-6xl lg:text-7xl">
               {profile.name}
             </h1>
-            <p className="mt-4 text-3xl font-bold text-accent sm:text-5xl">{profile.title}</p>
+            <p className="mt-4 max-w-3xl text-2xl font-bold leading-tight text-accent sm:text-4xl lg:text-5xl">
+              {profile.title}
+            </p>
           </ScrollReveal>
           <ScrollReveal delay={160}>
             <p className="mt-6 max-w-2xl text-base leading-8 text-secondary">{profile.summary}</p>
           </ScrollReveal>
           <ScrollReveal delay={240}>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:flex sm:flex-row">
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-background transition hover:bg-accent-hover"
+                className="col-span-2 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-background transition hover:bg-accent-hover sm:col-span-1"
               >
                 View My Work
               </a>
@@ -53,7 +55,7 @@ export function Hero() {
             </div>
           </ScrollReveal>
           <ScrollReveal delay={320}>
-            <div className="mt-8 flex flex-wrap gap-3" aria-label="Social links">
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8" aria-label="Social links">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}

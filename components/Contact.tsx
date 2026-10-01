@@ -9,9 +9,9 @@ const socialIcons: Record<string, string> = {
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-primary py-12 text-background">
-      <div className="mx-auto grid max-w-7xl gap-40 px-5 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:px-8">
-        <ScrollReveal>
+    <section id="contact" className="bg-primary py-16 text-background sm:py-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:gap-20 lg:px-8 xl:gap-32">
+        <ScrollReveal className="min-w-0">
           <div>
             <p className="w-fit rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-gray-200">
               Open to internship opportunities
@@ -23,29 +23,29 @@ export function Contact() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={100}>
-          <div className="rounded-4xl bg-white/5 p-7">
+        <ScrollReveal className="min-w-0" delay={100}>
+          <div className="min-w-0 rounded-3xl bg-white/5 p-5 sm:rounded-4xl sm:p-7">
             <p className="text-sm font-semibold text-gray-300">Email</p>
-            <p className="mt-2 wrap-break-word text-xl font-bold text-background">
+            <a className="mt-2 block break-all text-lg font-bold text-background transition hover:text-accent sm:text-xl" href={`mailto:${profile.email}`}>
               {profile.email}
-            </p>
+            </a>
 
             <div className="mt-8 space-y-4">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
-                  className="flex items-center justify-between gap-4 rounded-2xl bg-white/5 px-4 py-4 text-sm font-semibold text-gray-300 transition hover:bg-white/10 hover:text-background"
+                  className="flex min-w-0 items-center justify-between gap-4 rounded-2xl bg-white/5 px-4 py-4 text-sm font-semibold text-gray-300 transition hover:bg-white/10 hover:text-background"
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className="flex items-center gap-3">
+                  <span className="flex shrink-0 items-center gap-3">
                     {socialIcons[link.label] ? (
                       <Image src={socialIcons[link.label]} alt="" width={20} height={20} className="h-5 w-5" />
                     ) : null}
                     {link.label}
                   </span>
-                  <span className="truncate text-right text-accent">{link.href.replace(/^https?:\/\//, "")}</span>
+                  <span className="min-w-0 truncate text-right text-accent">{link.href.replace(/^https?:\/\//, "")}</span>
                 </a>
               ))}
             </div>

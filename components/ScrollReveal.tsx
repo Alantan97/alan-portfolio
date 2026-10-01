@@ -4,10 +4,11 @@ import { type ReactNode, useEffect, useRef, useState } from "react";
 
 type ScrollRevealProps = {
   children: ReactNode;
+  className?: string;
   delay?: number;
 };
 
-export function ScrollReveal({ children, delay = 0 }: ScrollRevealProps) {
+export function ScrollReveal({ children, className = "", delay = 0 }: ScrollRevealProps) {
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(() => {
     if (typeof window === "undefined") {
@@ -65,7 +66,7 @@ export function ScrollReveal({ children, delay = 0 }: ScrollRevealProps) {
   return (
     <div
       ref={elementRef}
-      className={`scroll-reveal ${isVisible ? "is-visible" : ""}`}
+      className={`scroll-reveal ${isVisible ? "is-visible" : ""} ${className}`.trim()}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
