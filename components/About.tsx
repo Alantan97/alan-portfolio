@@ -50,7 +50,7 @@ export function About() {
                   <p className="text-sm font-semibold text-accent">{education.period}</p>
                   <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                     <p className="text-lg font-semibold leading-tight text-primary">{education.title}</p>
-                    <p className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-sm font-semibold text-accent">
+                    <p className="self-start rounded-full bg-accent/10 px-3 py-1 text-sm font-semibold text-accent sm:self-auto">
                       {education.cgpa}
                     </p>
                   </div>

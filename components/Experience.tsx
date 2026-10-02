@@ -28,7 +28,7 @@ export function Experience() {
                         <h3 className="text-2xl font-bold leading-tight text-primary">{experience.role}</h3>
                         <p className="mt-2 text-base font-semibold italic text-primary">{experience.company}</p>
                       </div>
-                      <p className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-sm font-semibold text-accent">
+                      <p className="self-start rounded-full bg-accent/10 px-3 py-1 text-sm font-semibold text-accent sm:self-auto">
                         {experience.period}
                       </p>
                     </div>

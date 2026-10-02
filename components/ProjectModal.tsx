@@ -341,7 +341,21 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <div className="project-modal-scroll max-h-[90vh] overflow-y-auto rounded-4xl bg-background shadow-[0_18px_45px_rgba(17,24,39,0.18)]">
           <div className="px-7 py-6 sm:px-10 sm:py-8">
-            <div className="grid grid-cols-[1fr_auto] items-start gap-4 md:grid-cols-[1fr_220px] md:gap-6">
+            <div
+              className="project-modal-item mb-6 overflow-hidden rounded-2xl bg-accent/10 md:hidden"
+              style={modalItemStyle(40)}
+            >
+              <Image
+                src={project.image}
+                alt={`${project.title} preview`}
+                width={900}
+                height={560}
+                className="h-44 w-full object-cover"
+                priority
+              />
+            </div>
+
+            <div className="grid items-start md:grid-cols-[1fr_220px] md:gap-6">
               <div>
                 <div className="project-modal-item" style={modalItemStyle(80)}>
                   <div className="flex flex-wrap gap-2">
@@ -399,7 +413,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 ) : null}
               </div>
 
-              <div className="project-modal-item flex justify-end" style={modalItemStyle(140)}>
+              <div className="project-modal-item hidden justify-end md:flex" style={modalItemStyle(140)}>
                 <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-accent/5 sm:h-24 sm:w-24 md:h-44 md:w-44 md:rounded-3xl">
                   <Image
                     src={headerVisual}

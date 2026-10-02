@@ -245,46 +245,71 @@ export function Navbar() {
           </Link>
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-primary transition hover:border-accent hover:text-accent lg:hidden"
+            className="relative flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-primary transition hover:border-accent hover:text-accent lg:hidden"
             aria-controls="mobile-navigation"
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
           >
-            {isMobileMenuOpen ? (
-              <svg aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-              </svg>
-            ) : (
-              <svg aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M4 6h16" />
-                <path d="M4 12h16" />
-                <path d="M4 18h16" />
-              </svg>
-            )}
+            <svg
+              aria-hidden="true"
+              className={`absolute h-5 w-5 transition duration-200 motion-reduce:transition-none ${
+                isMobileMenuOpen ? "rotate-90 scale-75 opacity-0" : "rotate-0 scale-100 opacity-100"
+              }`}
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 6h16" />
+              <path d="M4 12h16" />
+              <path d="M4 18h16" />
+            </svg>
+            <svg
+              aria-hidden="true"
+              className={`absolute h-5 w-5 transition duration-200 motion-reduce:transition-none ${
+                isMobileMenuOpen ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-75 opacity-0"
+              }`}
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
           </button>
         </div>
       </nav>
-      {isMobileMenuOpen ? (
-        <div
-          id="mobile-navigation"
-          className="mx-5 mb-4 grid gap-1 rounded-2xl border border-border bg-background p-2 shadow-[0_12px_30px_rgba(17,24,39,0.12)] sm:mx-6 lg:hidden"
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={scrollToSection(item.sectionId)}
-              className={`rounded-xl px-4 py-3 text-sm font-semibold transition hover:bg-accent/10 hover:text-accent ${
-                isHomePage && activeSection === item.sectionId ? "bg-accent/10 text-accent" : "text-secondary"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+      <div
+        id="mobile-navigation"
+        aria-hidden={!isMobileMenuOpen}
+        className={`mx-5 grid overflow-hidden transition-[grid-template-rows,opacity,transform,margin] duration-300 ease-out motion-reduce:transition-none sm:mx-6 lg:hidden ${
+          isMobileMenuOpen
+            ? "mb-4 grid-rows-[1fr] translate-y-0 opacity-100"
+            : "pointer-events-none mb-0 grid-rows-[0fr] -translate-y-2 opacity-0"
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="grid gap-1 rounded-2xl border border-border bg-background p-2 shadow-[0_12px_30px_rgba(17,24,39,0.12)]">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                tabIndex={isMobileMenuOpen ? undefined : -1}
+                onClick={scrollToSection(item.sectionId)}
+                className={`rounded-xl px-4 py-3 text-sm font-semibold transition hover:bg-accent/10 hover:text-accent ${
+                  isHomePage && activeSection === item.sectionId ? "bg-accent/10 text-accent" : "text-secondary"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

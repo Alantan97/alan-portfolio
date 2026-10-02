@@ -33,7 +33,7 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
           height={560}
           className={imageClassName}
         />
-        <div className="absolute inset-0 flex items-end justify-end bg-transparent p-3 opacity-100 transition md:items-center md:justify-center md:bg-primary/25 md:p-0 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
+        <div className="absolute inset-0 hidden items-center justify-center bg-primary/25 opacity-0 transition md:flex md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
           <span className="inline-flex items-center gap-2 rounded-full bg-background px-4 py-2 text-sm font-bold text-accent shadow-[0_8px_18px_rgba(17,24,39,0.16)]">
             View Project
           </span>
@@ -72,6 +72,9 @@ export function ProjectCard({ project, featured = false, onOpen }: ProjectCardPr
         <p className="mt-auto pt-5 text-sm font-medium leading-7 text-secondary transition group-hover:text-accent group-focus-visible:text-accent">
           {project.technologies.join(" • ")}
         </p>
+        <span className="mt-3 flex w-full items-center justify-center rounded-full border border-accent bg-transparent px-4 py-2.5 text-sm font-bold text-accent md:hidden">
+          View Project
+        </span>
       </div>
     </>
   );

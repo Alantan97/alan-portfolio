@@ -1,5 +1,4 @@
 export type Achievement = {
-  kind: "achievement" | "activity";
   title: string;
   organization: string;
   place?: string;
@@ -12,7 +11,6 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
-    kind: "achievement",
     title: "Certiport's Adobe Certified Professional\nWorld Championship 2024",
     organization: "7th Place · International",
     place: "Anaheim, California, USA",
@@ -22,7 +20,6 @@ export const achievements: Achievement[] = [
     image: "/images/achievements/7th place.jpg",
   },
   {
-    kind: "achievement",
     title: "Certiport's Microsoft Office Specialist\nWorld Championship 2025",
     organization: "Finalist · International",
     place: "Orlando, Florida, USA",
@@ -32,7 +29,6 @@ export const achievements: Achievement[] = [
     image: "/images/achievements/finalist mos.JPG",
   },
   {
-    kind: "achievement",
     title: "CCC's Adobe Certified Professional\nMalaysia National Championship 2024",
     organization: "2nd Place · National",
     place: "Lexis, Kuala Lumpur",
@@ -42,7 +38,6 @@ export const achievements: Achievement[] = [
     image: "/images/achievements/2nd place.jpg",
   },
   {
-    kind: "achievement",
     title: "CCC's Microsoft Office Specialist\nMalaysia National Championship 2025",
     organization: "3rd Place · National",
     place: "UOC, Cyberjaya",
@@ -52,7 +47,6 @@ export const achievements: Achievement[] = [
     image: "/images/achievements/mos 3rd.jpg",
   },
   {
-    kind: "achievement",
     title: "Diploma Innovative & Creative Project Exhibition 2023",
     organization: "Best Project & Best Poster· University",
     place: "UPSI, Tanjung Malim",
@@ -61,7 +55,6 @@ export const achievements: Achievement[] = [
     image: "/images/achievements/fyp.png",
   },
   {
-    kind: "activity",
     title: "Micro-Credentials Education Summit 2025",
     organization: "Panelist · National",
     place: "UOC, Cyberjaya",
@@ -71,7 +64,6 @@ export const achievements: Achievement[] = [
     image: "/images/activities/talk1.jpeg",
   },
   {
-    kind: "activity",
     title: "Champion's Launchpad",
     organization: "Panelist · National",
     place: "Sunway University, Selangor",
@@ -82,7 +74,6 @@ export const achievements: Achievement[] = [
     imagePosition: "object-[50%_0%]",
   },
   {
-    kind: "activity",
     title: "Malaysia Digital Content Festival",
     organization: "Panelist · National",
     place: "KLCC, Kuala Lumpur",
@@ -93,7 +84,6 @@ export const achievements: Achievement[] = [
     imagePosition: "object-[50%_80%]",
   },
   {
-    kind: "activity",
     title: "Adobe Creative Connect",
     organization: "Demonstrator · National",
     place: "CCEC Nexus, Bangsar South",
